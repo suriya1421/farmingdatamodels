@@ -13,20 +13,20 @@
 		<div id="form">
 			<form:form action="" method="get" modelAttribute="findCropdiseasebyid">
 				<div>
-					<label for="crop_id">Crop id</label>
+					<label for="cropId">Crop id</label>
 					<div>
-						<form:input path="crop_id" readonly="true"/>
+						<form:input path="cropId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="disease_id">disease id</label>
+					<label for="diseaseId">disease id</label>
 					<div>
-						<form:input path="disease_id" readonl/>
+						<form:input path="diseaseId" readonly="true"/>
 					</div>
 					<div>
-						<label for="affecting_stages">Affecting Stages</label>
+						<label for="affectingStages">Affecting Stages</label>
 						<div>
-							<form:input path="affecting_stages" />
+							<form:input path="affectingStages" readonly="true"/>
 						</div>
 					</div>
 

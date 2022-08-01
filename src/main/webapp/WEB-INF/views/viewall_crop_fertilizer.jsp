@@ -21,10 +21,10 @@
 			</thead>
 			<tbody><c:forEach var="cropfer" items="${cropFertilizer}">
 					<tr>
-						<td>${cropfer.crop_id }</td>
-						<td>${cropfer.fer_id}</td>
+						<td>${cropfer.cropId }</td>
+						<td>${cropfer.fertilizerId}</td>
 						<td>${cropfer.quantity}</td>
-						<td>${cropfer.stage_of_use}</td>
+						<td>${cropfer.stageOfUse}</td>
 					</tr>
 				
 				</c:forEach>

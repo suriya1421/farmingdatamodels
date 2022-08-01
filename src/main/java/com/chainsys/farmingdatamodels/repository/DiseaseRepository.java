@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.farmingdatamodels.pojo.Disease;
+import com.chainsys.farmingdatamodels.model.Disease;
 
 public interface DiseaseRepository extends CrudRepository<Disease,Integer> {
 	Disease findById(int id);

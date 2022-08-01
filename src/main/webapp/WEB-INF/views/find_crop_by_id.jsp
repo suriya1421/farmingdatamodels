@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="getcrop" method="get" modelAttribute="findcropbyid">
 				<div>
-					<label for="crop_id">crop id</label>
+					<label for="cropId">crop id</label>
 					<div>
-						<form:input path="crop_id" readonly="true"/>
+						<form:input path="cropId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="crop_name">crop Name</label>
+					<label for="cropName">crop Name</label>
 					<div>
-						<form:input path="crop_name" readonly="true" />
+						<form:input path="cropName" readonly="true" />
 					</div>
 					<div>
 						<label for="description">description</label>

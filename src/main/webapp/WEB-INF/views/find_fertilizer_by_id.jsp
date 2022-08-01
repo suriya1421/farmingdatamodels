@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="getfertilizer" method="post" modelAttribute="findfertilizerbyid">
 				<div>
-					<label for="fer_id">fertilizer id</label>
+					<label for="fertilizerId">fertilizer id</label>
 					<div>
-						<form:input path="fer_id" readonly="true" />
+						<form:input path="fertilizerId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="fer_name">fertilizer Name</label>
+					<label for="fertilizerName">fertilizer Name</label>
 					<div>
-						<form:input path="fer_name" readonly="true" />
+						<form:input path="fertilizerName" readonly="true" />
 					</div>
 					<div>
 						<label for="state">state</label>
@@ -31,17 +31,11 @@
 					</div>
 
 				</div>
-				<div>
 					<label for="cost">cost</label>
 					<div>
 						<form:input path="cost" readonly="true"/>
 					</div>
-					<div>
-						<label for="stock_in_hand">stock in hand</label>
-						<div>
-							<form:input path="stock_in_hand" readonly="true" />
-						</div>
-					</div>
+					
 					<div>
 						<form:button>find</form:button>
 					</div>

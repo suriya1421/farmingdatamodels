@@ -22,8 +22,8 @@
 			</thead>
 			<tbody><c:forEach var="crop" items="${allcrop}">
 					<tr>
-						<td>${crop.crop_id }</td>
-						<td>${crop.crop_name  }</td>
+						<td>${crop.cropId }</td>
+						<td>${crop.cropName  }</td>
 						<td>${crop.description}</td>
 						<td>${crop.duration}</td>
 					</tr>

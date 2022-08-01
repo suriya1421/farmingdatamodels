@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.farmingdatamodels.pojo.CropDiseaseDetails;
-import com.chainsys.farmingdatamodels.pojo.CropFertilizerDetails;
-import com.chainsys.farmingdatamodels.pojo.Disease;
+import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
+import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
+import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.services.CropFertilizerService;
 
 @Controller
@@ -21,14 +21,14 @@ import com.chainsys.farmingdatamodels.services.CropFertilizerService;
 public class CropFertilizerController {
 @Autowired
 CropFertilizerService crfe;
-@GetMapping("/list")
+@GetMapping("/allcropfertilizerlist")
 public String getFindAll(Model model) {
 	List<CropFertilizerDetails> crf = crfe.getCropFertilizer();
 	model.addAttribute("cropFertilizer", crf);
 	return "viewall_crop_fertilizer";
 
 }
-@GetMapping("/addform")
+@GetMapping("/addquantityandstage")
 public String showAddForm(Model model) {
 	CropFertilizerDetails dis = new CropFertilizerDetails();
 	model.addAttribute("addcropfertilizer", dis);
@@ -38,10 +38,10 @@ public String showAddForm(Model model) {
 @PostMapping("/add")
 public String addNewFertilizerDetail(@ModelAttribute("addcropfertilizer") CropFertilizerDetails crfertilizer) {
 	crfe.save(crfertilizer);
-	return "redirect:/cropfertilizer/list";
+	return "redirect:/cropfertilizer/allcropfertilizerlist";
 
 }
-@GetMapping("/updateform")
+@GetMapping("/updatequantityandstage")
 public String showUpdateForm(@RequestParam("id") int id, Model model) {
 	CropFertilizerDetails crfer = crfe.findById(id);
 	model.addAttribute("updatecropfertilizer", crfer);
@@ -51,18 +51,18 @@ public String showUpdateForm(@RequestParam("id") int id, Model model) {
 @PostMapping("/update")
 public String UpdateCrop(@ModelAttribute("updatecropfertilizer") 	CropFertilizerDetails cr) {
 	crfe.save(cr);
-	return "redirect:/cropfertilizer/list";
+	return "redirect:/cropfertilizer/allcropfertilizerlist";
 }
-@GetMapping("/delete")
+@GetMapping("/deletequantityandstage")
 public String deleteCropFertilizer(@RequestParam("id") int id) {
 	crfe.deleteById(id);
-	return "redirect:/cropfertilizer/list";
+	return "redirect:/cropfertilizer/allcropfertilizerlist";
 
 }
-@GetMapping("/getcropfertilizer")
+@GetMapping("/getquantityandstagebyid")
 public String getCropFertilizer(@RequestParam("id") int id, Model model) {
 	CropFertilizerDetails crf= crfe.findById(id);
-	model.addAttribute("finddiseasebyid", crf);
+	model.addAttribute("findcropfertilizerbyid", crf);
 	return "find_crop_fertilizer_by_id";
 }
 }

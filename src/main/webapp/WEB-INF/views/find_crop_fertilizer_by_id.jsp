@@ -11,17 +11,17 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="getcropfertilizer" method="get" modelAttribute="findcropfertilizerbyid">
+			<form:form action="" method="get" modelAttribute="findcropfertilizerbyid">
 				<div>
-					<label for="crop_id">crop id</label>
+					<label for="cropId">crop id</label>
 					<div>
-						<form:input path="crop_id" />
+						<form:input path="cropId" />
 					</div>
 				</div>
 				<div>
-					<label for="fer_id">fertilizer id</label>
+					<label for="fertilizerId">fertilizer id</label>
 					<div>
-						<form:input path="fer_id" />
+						<form:input path="fertilizerId" />
 					</div>
 					<div>
 						<label for="quantity">quantity</label>
@@ -32,9 +32,9 @@
 
 				</div>
 				<div>
-					<label for="stage_of_use">stage of use</label>
+					<label for="stageOfUse">stage of use</label>
 					<div>
-						<form:input path="stage_of_use" />
+						<form:input path="stageOfUse" />
 					</div>
 
 					<form:button>find</form:button>

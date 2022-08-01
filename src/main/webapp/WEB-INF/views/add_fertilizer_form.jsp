@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addfertilizer">
 				<div>
-					<label for="fer_id">fertilizer id</label>
+					<label for="fertilizerId">fertilizer id</label>
 					<div>
-						<form:input path="fer_id" />
+						<form:input path="fertilizerId" />
 					</div>
 				</div>
 				<div>
-					<label for="fer_name">fertilizer Name</label>
+					<label for="fertilizerName">fertilizer Name</label>
 					<div>
-						<form:input path="fer_name" />
+						<form:input path="fertilizerName" />
 					</div>
 					<div>
 						<label for="state">state</label>
@@ -36,12 +36,7 @@
 					<div>
 						<form:input path="cost" />
 					</div>
-					<div>
-						<label for="stock_in_hand">stock in hand</label>
-						<div>
-							<form:input path="stock_in_hand" />
-						</div>
-					</div>
+					
 					<div>
 						<form:button>Add New</form:button>
 					</div>

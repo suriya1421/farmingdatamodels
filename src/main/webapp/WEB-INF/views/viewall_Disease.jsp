@@ -22,8 +22,8 @@
 			</thead>
 			<tbody><c:forEach var="disease" items="${allDisease}">
 					<tr>
-						<td>${disease.disease_id }</td>
-						<td>${disease.disease_name  }</td>
+						<td>${disease.diseaseId }</td>
+						<td>${disease.diseaseName  }</td>
 						<td>${disease.reason}</td>
 						<td>${disease.medicine}</td>
 						<td>${disease.prevention}</td>

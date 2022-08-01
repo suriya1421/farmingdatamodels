@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="adddisease">
 				<div>
-					<label for="disease_id">disease id</label>
+					<label for="diseaseId">disease id</label>
 					<div>
-						<form:input path="disease_id" />
+						<form:input path="diseaseId" />
 					</div>
 				</div>
 				<div>
-					<label for="disease_name">disease Name</label>
+					<label for="diseaseName">disease Name</label>
 					<div>
-						<form:input path="disease_name" />
+						<form:input path="diseaseName" />
 					</div>
 					<div>
 						<label for="reason">reason</label>

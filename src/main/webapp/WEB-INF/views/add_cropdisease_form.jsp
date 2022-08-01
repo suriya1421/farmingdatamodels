@@ -13,20 +13,20 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addcropdisease">
 				<div>
-					<label for="crop_id">Crop id</label>
+					<label for="cropId">Crop id</label>
 					<div>
-						<form:input path="crop_id" />
+						<form:input path="cropId" />
 					</div>
 				</div>
 				<div>
-					<label for="disease_id">disease id</label>
+					<label for="diseaseId">disease id</label>
 					<div>
-						<form:input path="disease_id" />
+						<form:input path="diseaseId" />
 					</div>
 					<div>
-						<label for="affecting_stages">Affecting Stages</label>
+						<label for="affectingStages">Affecting Stages</label>
 						<div>
-							<form:input path="affecting_stages" />
+							<form:input path="affectingStages" />
 						</div>
 					</div>
 

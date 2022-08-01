@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.farmingdatamodels.pojo.Fertilizer;
+import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.FertilizerService;
 
 @Controller
@@ -20,14 +20,14 @@ public class FertilizerController {
 	@Autowired
 	FertilizerService fertilizer;
 
-	@GetMapping("/list")
+	@GetMapping("/allfertilizerlist")
 	public String getFindAll(Model model) {
 		List<Fertilizer> fe = fertilizer.getFertilizer();
 		model.addAttribute("allfertilizer", fe);
 		return "viewall_fertilizer";
 	}
 
-	@GetMapping("/addform")
+	@GetMapping("/addfertilizer")
 	public String showAddForm(Model model) {
 		Fertilizer fe = new Fertilizer();
 		model.addAttribute("addfertilizer", fe);
@@ -37,24 +37,24 @@ public class FertilizerController {
 	@PostMapping("/add")
 	public String addNewFertilizerDetail(@ModelAttribute("addfertilizer") Fertilizer fe) {
 		fertilizer.save(fe);
-		return "redirect:/fertilizer/list";
+		return "redirect:/fertilizer/allfertilizerlist";
 
 	}
 
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("update") int id, Model model) {
+	@GetMapping("/updatefertilizer")
+	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		Fertilizer fe = fertilizer.findById(id);
-		model.addAttribute("updatecrop", fe);
+		model.addAttribute("updatefertilizer", fe);
 		return "update_fertilizer_form";
 	}
 
 	@PostMapping("/update")
 	public String UpdateFertilizer(@ModelAttribute("updatecrop") Fertilizer fe) {
 		fertilizer.save(fe);
-		return "redirect:/fertilizer/list";
+		return "redirect:/fertilizer/allfertilizerlist";
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/deletefertilizer")
 	public String deleteFertilizer(@RequestParam("id") int id) {
 		fertilizer.deleteById(id);
 		return "redirect:/fertilizer/list";

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.farmingdatamodels.pojo.CropDiseaseDetails;
-import com.chainsys.farmingdatamodels.pojo.Disease;
+import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
+import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.services.CropDiseaseService;
 
 @Controller
@@ -21,13 +21,13 @@ public class CropDiseaseController {
 	@Autowired
 	CropDiseaseService crdis;
 
-	@GetMapping("/list")
+	@GetMapping("/viewallcropdiseaselist")
 	public String getFindAll(Model model) {
 		List<CropDiseaseDetails> dis = crdis.getCropDisease();
 		model.addAttribute("allcropDisease", dis);
 		return "viewall_crop_disease";
 	}
-	@GetMapping("/addform")
+	@GetMapping("/addaffectionstage")
 	public String showAddForm(Model model) {
 		CropDiseaseDetails dis = new CropDiseaseDetails();
 		model.addAttribute("addcropdisease", dis);
@@ -37,10 +37,10 @@ public class CropDiseaseController {
 	@PostMapping("/add")
 	public String addNewCropDisease(@ModelAttribute("addcropdisease") CropDiseaseDetails crodis) {
 		crdis.save(crodis);
-		return "redirect:/cropdisease/list";
+		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
-	@GetMapping("/updateform")
+	@GetMapping("/updateaffectingstage")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		CropDiseaseDetails crdisease = crdis.findById(id);
 		model.addAttribute("updatecropdisease", crdisease);
@@ -50,15 +50,15 @@ public class CropDiseaseController {
 	@PostMapping("/update")
 	public String UpdateCrop(@ModelAttribute("updatecropdisease") 	CropDiseaseDetails cr) {
 		crdis.save(cr);
-		return "redirect:/cropdisease/list";
+		return "redirect:/cropdisease/viewallcropdiseaselist";
 	}
-	@GetMapping("/delete")
+	@GetMapping("/deleteaffectingstage")
 	public String deleteCropDisease(@RequestParam("id") int id) {
 		crdis.deleteById(id);
-		return "redirect:/cropdisease/list";
+		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
-	@GetMapping("/getcropdisease")
+	@GetMapping("/getaffectingstagebyid")
 	public String getCropDisease(@RequestParam("id") int id, Model model) {
 		CropDiseaseDetails dis= crdis.findById(id);
 		model.addAttribute("findCropdiseasebyid", dis);

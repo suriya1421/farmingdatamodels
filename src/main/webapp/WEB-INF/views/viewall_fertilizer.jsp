@@ -22,11 +22,10 @@
 			</thead>
 			<tbody><c:forEach var="fertilizer" items="${allfertilizer}">
 					<tr>
-						<td>${fertilizer.fer_id }</td>
-						<td>${fertilizer.fer_name  }</td>
+						<td>${fertilizer.fertilizerId }</td>
+						<td>${fertilizer.fertilizerName  }</td>
 						<td>${fertilizer.state}</td>
 						<td>${fertilizer. cost}</td>
-						<td>${fertilizer.stock_in_hand}</td>
 					</tr>
 				
 				</c:forEach>

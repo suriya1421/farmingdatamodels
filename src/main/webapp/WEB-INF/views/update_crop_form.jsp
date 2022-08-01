@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="update" method="post" modelAttribute="updatecrop">
 				<div>
-					<label for="crop_id">crop id</label>
+					<label for="cropId">crop id</label>
 					<div>
-						<form:input path="crop_id" />
+						<form:input path="cropId" />
 					</div>
 				</div>
 				<div>
-					<label for="crop_name">crop Name</label>
+					<label for="cropName">crop Name</label>
 					<div>
-						<form:input path="crop_name" />
+						<form:input path="cropName" />
 					</div>
 					<div>
 						<label for="description">description</label>

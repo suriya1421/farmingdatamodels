@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="getdisease" method="post" modelAttribute="finddiseasebyid">
 				<div>
-					<label for="disease_id">disease id</label>
+					<label for="diseaseId">disease id</label>
 					<div>
-						<form:input path="disease_id" readonly="true" />
+						<form:input path="diseaseId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="disease_name">disease Name</label>
+					<label for="diseaseName">disease Name</label>
 					<div>
-						<form:input path="disease_name" readonly="true" />
+						<form:input path="diseaseName" readonly="true" />
 					</div>
 					<div>
 						<label for="reason">reason</label>
@@ -31,7 +31,6 @@
 					</div>
 
 				</div>
-				<div>
 					<label for="medicine">medicine</label>
 					<div>
 						<form:input path="medicine"  readonly="true"/>

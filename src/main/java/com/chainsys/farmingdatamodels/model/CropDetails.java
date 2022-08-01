@@ -1,5 +1,6 @@
-package com.chainsys.farmingdatamodels.pojo;
+package com.chainsys.farmingdatamodels.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,41 +9,40 @@ import javax.persistence.Table;
 @Table(name="cropdetails")
 public class CropDetails {
 	@Id
-	private int crop_id;
-	private String crop_name;
+	@Column(name="crop_id")
+	private int cropId;
+	@Column(name="crop_name")
+	private String cropName;
+	@Column(name="description")
 	private String description;
+	@Column(name="duration")
 	private int duration;
-
-	public String getCrop_name() {
-		return crop_name;
+	
+	public int getCropId() {
+		return cropId;
 	}
-
-	public void setCrop_name(String crop_name) {
-		this.crop_name = crop_name;
+	public void setCropId(int cropId) {
+		this.cropId = cropId;
 	}
-
-	public int getCrop_id() {
-		return crop_id;
+	public String getCropName() {
+		return cropName;
 	}
-
-	public void setCrop_id(int crop_id) {
-		this.crop_id = crop_id;
+	public void setCropName(String cropName) {
+		this.cropName = cropName;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	public int getDuration() {
 		return duration;
 	}
-
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
+	
 
+	
 }

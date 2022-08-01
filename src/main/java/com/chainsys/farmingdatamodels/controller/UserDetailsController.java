@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.farmingdatamodels.pojo.UserDetails;
+import com.chainsys.farmingdatamodels.model.UserDetails;
 import com.chainsys.farmingdatamodels.services.UserDetailsService;
 
 
@@ -21,13 +21,13 @@ import com.chainsys.farmingdatamodels.services.UserDetailsService;
 public class UserDetailsController {
 @Autowired
 UserDetailsService user;
-@GetMapping("/list")
+@GetMapping("/alluserlist")
 public String getFindAll(Model model) {
 	List<UserDetails> listuser=user.getUser();
 	model.addAttribute("alluser", listuser);
 	return "viewalluser";
 	}
-@GetMapping("/addform")
+@GetMapping("/addnewuser")
 public String showAddForm(Model model) {
 	UserDetails ud=new UserDetails();
 	model.addAttribute("adduserdetail", ud);
@@ -39,7 +39,7 @@ public String addNewUserDetail(@ModelAttribute("adduserdetail")UserDetails ud) {
 	return "redirect:/user/list";
 	
 }
-@GetMapping("/updateform")
+@GetMapping("/updateuser")
 public String showUpdateForm(@RequestParam("update") int id, Model model ){
     UserDetails br=user.findById(id);
     model.addAttribute("updateuser", br);
@@ -51,13 +51,13 @@ public String Updateuser(@ModelAttribute("updateuser") UserDetails ud) {
     user.save(ud);
     return "redirect:/user/list";
 }
-@GetMapping("/delete")
+@GetMapping("/deleteuser")
 public String deleteUser(@RequestParam("id") int id) {
 	user.deleteById(id);
 	return "redirect:/user/list";
 	
 }
-@GetMapping("/getuser")
+@GetMapping("/getuserfindbyid")
 public String getUser(@RequestParam("id") int id,Model model)
 {
     UserDetails userid=user.findById(id);

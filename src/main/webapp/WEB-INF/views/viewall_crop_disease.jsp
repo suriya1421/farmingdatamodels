@@ -20,9 +20,9 @@
 			</thead>
 			<tbody><c:forEach var="cropdisease" items="${allcropDisease}">
 					<tr>
-						<td>${cropdisease.crop_id }</td>
-						<td>${cropdisease.disease_id}</td>
-						<td>${cropdisease.affecting_stages}</td>
+						<td>${cropdisease.cropId }</td>
+						<td>${cropdisease.diseaseId}</td>
+						<td>${cropdisease.affectingStages}</td>
 					</tr>
 				
 				</c:forEach>

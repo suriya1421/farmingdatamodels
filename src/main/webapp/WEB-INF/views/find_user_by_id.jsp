@@ -13,15 +13,15 @@
         <div id="form">
             <form:form action="getuser" method="get" modelAttribute="finduserbyid">
                 <div>
-                    <label for="user_id">User id</label>
+                    <label for="userId">User id</label>
                     <div>
-                        <form:input path="user_id" readonly="true" />
+                        <form:input path="userId" readonly="true" />
                     </div>
                 </div>
                 <div>
-                    <label for="user_name">User Name</label>
+                    <label for="userName">User Name</label>
                     <div>
-                        <form:input path="user_name" readonly="true" />
+                        <form:input path="userName" readonly="true" />
                     </div>
                 <div>
                     <label for="password">Password</label>
@@ -37,9 +37,9 @@
                         <form:input path="email" readonly="true" />
                     </div>
                     <div>
-                    <label for="phone_number">Phone Number</label>
+                    <label for="phoneNumber">Phone Number</label>
                     <div>
-                        <form:input path="phone_number" readonly="true" />
+                        <form:input path="phoneNumber" readonly="true" />
                     </div>
                     <div>
                     <label for="address">Address</label>

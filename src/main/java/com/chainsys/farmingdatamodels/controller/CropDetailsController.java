@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.farmingdatamodels.pojo.CropDetails;
-import com.chainsys.farmingdatamodels.pojo.Disease;
-import com.chainsys.farmingdatamodels.pojo.Fertilizer;
+import com.chainsys.farmingdatamodels.model.CropDetails;
+import com.chainsys.farmingdatamodels.model.Disease;
+import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.CropDetailsService;
 
 @Controller
-@RequestMapping("/cropdetail")
+@RequestMapping("/cropdetails")
 public class CropDetailsController {
 	@Autowired
 	CropDetailsService crop;
 	
-	@GetMapping("/list")
+	@GetMapping("/croplist")
 	public String getFindAll(Model model) {
 		List<CropDetails> cr = crop.getCrop();
 		model.addAttribute("allcrop", cr);
 		return "viewall_Crops";
 
 }
-	@GetMapping("/addform")
+	@GetMapping("/addcrop")
 	public String showAddForm(Model model) {
 		CropDetails cr = new CropDetails();
 		model.addAttribute("addcropdetails", cr);
@@ -42,7 +42,7 @@ public class CropDetailsController {
 		return "redirect:/cropdetail/list";
 
 	}
-	@GetMapping("/updateform")
+	@GetMapping("/updatecrop")
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
 		CropDetails cr = crop.findById(id);
 		model.addAttribute("updatecrop", cr);
@@ -54,13 +54,13 @@ public class CropDetailsController {
 		crop.save(cr);
 		return "redirect:/cropdetail/list";
 	}
-	@GetMapping("/delete")
+	@GetMapping("/deletecrop")
 	public String deleteCrop(@RequestParam("id") int id) {
 		crop.deleteById(id);
 		return "redirect:/cropdetail/list";
 
 	}
-	@GetMapping("/getcrop")
+	@GetMapping("/getcropbyid")
 	public String getCrop(@RequestParam("id") int id, Model model) {
     CropDetails cr= crop.findById(id);
 		model.addAttribute("findcropbyid", cr);

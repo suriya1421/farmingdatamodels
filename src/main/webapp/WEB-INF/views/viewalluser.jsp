@@ -23,11 +23,11 @@
 			</thead>
 			<tbody><c:forEach var="user" items="${alluser}">
 					<tr>
-						<td>${user.user_id }</td>
-						<td>${user.user_name  }</td>
+						<td>${user.userId }</td>
+						<td>${user.userName  }</td>
 						<td>${user.password}</td>
 						<td>${user.email}</td>
-						<td>${user.phone_number}</td>
+						<td>${user.phoneNumber}</td>
 						<td>${user.address}</td>
 					</tr>
 				

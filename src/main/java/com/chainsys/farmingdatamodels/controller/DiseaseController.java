@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.farmingdatamodels.pojo.Disease;
-import com.chainsys.farmingdatamodels.pojo.Fertilizer;
+import com.chainsys.farmingdatamodels.model.Disease;
+import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.DiseaseService;
 
 @Controller
@@ -21,13 +21,13 @@ public class DiseaseController {
 	@Autowired
 	DiseaseService disease;
 	
-	@GetMapping("/list")
+	@GetMapping("/alldiseaselist")
 	public String getFindAll(Model model) {
 		List<Disease> dis = disease.getDisease();
 		model.addAttribute("allDisease", dis);
 		return "viewall_Disease";
 	}
-	@GetMapping("/addform")
+	@GetMapping("/addnewdisease")
 	public String showAddForm(Model model) {
 		Disease dis = new Disease();
 		model.addAttribute("adddisease", dis);
@@ -37,10 +37,10 @@ public class DiseaseController {
 	@PostMapping("/add")
 	public String addNewFertilizerDetail(@ModelAttribute("adddisease") Disease dis) {
 		disease.save(dis);
-		return "redirect:/disease/list";
+		return "redirect:/disease/alldiseaselist";
 
 	}
-	@GetMapping("/updateform")
+	@GetMapping("/updatedisease")
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
 		Disease dis = disease.findById(id);
 		model.addAttribute("updatedisease", dis);
@@ -52,14 +52,14 @@ public class DiseaseController {
 		disease.save(dis);
 		return "redirect:/disease/list";
 	}
-	@GetMapping("/delete")
+	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("id") int id) {
 		disease.deleteById(id);
-		return "redirect:/disease/list";
+		return "redirect:/disease/alldiseaselist";
 
 	}
 
-	@GetMapping("/getdisease")
+	@GetMapping("/getdiseasefindbyid")
 	public String getDisease(@RequestParam("id") int id, Model model) {
 		Disease dis= disease.findById(id);
 		model.addAttribute("finddiseasebyid", dis);

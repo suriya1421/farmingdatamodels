@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.farmingdatamodels.pojo.CropFertilizerDetails;
+import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
 
 public interface CropFertilizerRepository extends CrudRepository<CropFertilizerDetails,Integer>  {
 	CropFertilizerDetails findById(int id);

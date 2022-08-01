@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.farmingdatamodels.pojo.CropDiseaseDetails;
+import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
 
 public interface CropDiseaseDetailsRepository extends CrudRepository<CropDiseaseDetails,Integer> {
 	
