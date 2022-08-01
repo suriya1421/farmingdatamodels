@@ -9,6 +9,7 @@ import javax.persistence.Table;
 public class CropDiseaseDetails {
 	@Id
 	private int crop_id;
+    
 	private int disease_id;
 	private String affecting_stages;
 

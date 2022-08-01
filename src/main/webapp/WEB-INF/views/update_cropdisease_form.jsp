@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>add crop disease</title>
+<title>update crop disease</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addcropdisease">
+			<form:form action="update" method="post" modelAttribute="updatecropdisease">
 				<div>
 					<label for="crop_id">Crop id</label>
 					<div>
@@ -33,7 +33,7 @@
 				</div>
 				<div>
 
-					<form:button>Add New</form:button>
+					<form:button>update</form:button>
 				</div>
 			</form:form>
 		</div>

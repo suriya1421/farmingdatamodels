@@ -65,6 +65,7 @@ public class DiseaseController {
 		model.addAttribute("finddiseasebyid", dis);
 		return "find_disease_by_id";
 	}
+	
 
 
 	

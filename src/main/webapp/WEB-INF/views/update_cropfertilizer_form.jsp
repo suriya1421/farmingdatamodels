@@ -6,38 +6,41 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>add crop disease</title>
+<title>Add Crop fertilizer</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addcropdisease">
+			<form:form action="update" method="post" modelAttribute="updatecropfertilizer">
 				<div>
-					<label for="crop_id">Crop id</label>
+					<label for="crop_id">crop id</label>
 					<div>
 						<form:input path="crop_id" />
 					</div>
 				</div>
 				<div>
-					<label for="disease_id">disease id</label>
+					<label for="fer_id">fertilizer id</label>
 					<div>
-						<form:input path="disease_id" />
+						<form:input path="fer_id" />
 					</div>
 					<div>
-						<label for="affecting_stages">Affecting Stages</label>
+						<label for="quantity">quantity</label>
 						<div>
-							<form:input path="affecting_stages" />
+							<form:input path="quantity" />
 						</div>
 					</div>
 
 				</div>
 				<div>
+					<label for="stage_of_use">stage of use</label>
+					<div>
+						<form:input path="stage_of_use" />
+					</div>
 
-					<form:button>Add New</form:button>
+					<form:button>update</form:button>
 				</div>
 			</form:form>
 		</div>
 	</div>
-
 </body>
 </html>

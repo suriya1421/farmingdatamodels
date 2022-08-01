@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>view all Crop disease</title>
+<title>view all Crop fertilizer</title>
 </head>
 <body>
 	<div id="table root">
@@ -13,16 +13,18 @@
 			<thead>
 				<tr>
 				    <th>crop id</th>
-					<th>disease id</th>
-					<th>affecting stages</th>					
+					<th>fertilizer id</th>
+					<th>quantity</th>
+					<th>stage of use</th>					
 					
 				</tr>
 			</thead>
-			<tbody><c:forEach var="cropdisease" items="${allcropDisease}">
+			<tbody><c:forEach var="cropfer" items="${cropFertilizer}">
 					<tr>
-						<td>${cropdisease.crop_id }</td>
-						<td>${cropdisease.disease_id}</td>
-						<td>${cropdisease.affecting_stages}</td>
+						<td>${cropfer.crop_id }</td>
+						<td>${cropfer.fer_id}</td>
+						<td>${cropfer.quantity}</td>
+						<td>${cropfer.stage_of_use}</td>
 					</tr>
 				
 				</c:forEach>

@@ -2,8 +2,10 @@ package com.chainsys.farmingdatamodels.pojo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="cropfertilizerdetails")
 public class CropFertilizerDetails {
 	@Id
 	private int crop_id;
