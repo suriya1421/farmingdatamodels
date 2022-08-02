@@ -18,53 +18,53 @@ import com.chainsys.farmingdatamodels.services.FertilizerService;
 @RequestMapping("/fertilizer")
 public class FertilizerController {
 	@Autowired
-	FertilizerService fertilizer;
+	FertilizerService fertilizerService;
 
 	@GetMapping("/allfertilizerlist")
 	public String getFindAll(Model model) {
-		List<Fertilizer> fe = fertilizer.getFertilizer();
-		model.addAttribute("allfertilizer", fe);
+		List<Fertilizer> fertilizer = fertilizerService.getFertilizer();
+		model.addAttribute("allfertilizer", fertilizer);
 		return "viewall_fertilizer";
 	}
 
 	@GetMapping("/addfertilizer")
 	public String showAddForm(Model model) {
-		Fertilizer fe = new Fertilizer();
-		model.addAttribute("addfertilizer", fe);
+		Fertilizer fertilizer = new Fertilizer();
+		model.addAttribute("addfertilizer", fertilizer);
 		return "add_fertilizer_form";
 	}
 
 	@PostMapping("/add")
 	public String addNewFertilizerDetail(@ModelAttribute("addfertilizer") Fertilizer fe) {
-		fertilizer.save(fe);
+		fertilizerService.save(fe);
 		return "redirect:/fertilizer/allfertilizerlist";
 
 	}
 
 	@GetMapping("/updatefertilizer")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
-		Fertilizer fe = fertilizer.findById(id);
-		model.addAttribute("updatefertilizer", fe);
+		Fertilizer fertilizer = fertilizerService.findById(id);
+		model.addAttribute("updatefertilizer", fertilizer);
 		return "update_fertilizer_form";
 	}
 
 	@PostMapping("/update")
-	public String UpdateFertilizer(@ModelAttribute("updatecrop") Fertilizer fe) {
-		fertilizer.save(fe);
+	public String UpdateFertilizer(@ModelAttribute("updatecrop") Fertilizer fertilizer) {
+		fertilizerService.save(fertilizer);
 		return "redirect:/fertilizer/allfertilizerlist";
 	}
 
 	@GetMapping("/deletefertilizer")
 	public String deleteFertilizer(@RequestParam("id") int id) {
-		fertilizer.deleteById(id);
+		fertilizerService.deleteById(id);
 		return "redirect:/fertilizer/list";
 
 	}
 
 	@GetMapping("/getfertilizer")
 	public String getFertilizer(@RequestParam("id") int id, Model model) {
-		Fertilizer fe= fertilizer.findById(id);
-		model.addAttribute("findfertilizerbyid", fe);
+		Fertilizer fertilizer= fertilizerService.findById(id);
+		model.addAttribute("findfertilizerbyid", fertilizer);
 		return "find_fertilizer_by_id";
 	}
 

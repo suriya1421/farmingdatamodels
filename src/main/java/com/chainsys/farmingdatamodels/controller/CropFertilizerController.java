@@ -20,49 +20,49 @@ import com.chainsys.farmingdatamodels.services.CropFertilizerService;
 @RequestMapping("/cropfertilizer")
 public class CropFertilizerController {
 @Autowired
-CropFertilizerService crfe;
+CropFertilizerService cropFertilizerService;
 @GetMapping("/allcropfertilizerlist")
 public String getFindAll(Model model) {
-	List<CropFertilizerDetails> crf = crfe.getCropFertilizer();
-	model.addAttribute("cropFertilizer", crf);
+	List<CropFertilizerDetails> cropFertilizerDetails = cropFertilizerService.getCropFertilizer();
+	model.addAttribute("cropFertilizer",cropFertilizerDetails);
 	return "viewall_crop_fertilizer";
 
 }
 @GetMapping("/addquantityandstage")
 public String showAddForm(Model model) {
-	CropFertilizerDetails dis = new CropFertilizerDetails();
-	model.addAttribute("addcropfertilizer", dis);
+	CropFertilizerDetails cropFertilizerDetails = new CropFertilizerDetails();
+	model.addAttribute("addcropfertilizer", cropFertilizerDetails);
 	return "add_crop_fertilizer_form";
 }
 
 @PostMapping("/add")
-public String addNewFertilizerDetail(@ModelAttribute("addcropfertilizer") CropFertilizerDetails crfertilizer) {
-	crfe.save(crfertilizer);
+public String addNewFertilizerDetail(@ModelAttribute("addcropfertilizer") CropFertilizerDetails cropFertilizerDetails) {
+	cropFertilizerService.save(cropFertilizerDetails);
 	return "redirect:/cropfertilizer/allcropfertilizerlist";
 
 }
 @GetMapping("/updatequantityandstage")
 public String showUpdateForm(@RequestParam("id") int id, Model model) {
-	CropFertilizerDetails crfer = crfe.findById(id);
-	model.addAttribute("updatecropfertilizer", crfer);
+	CropFertilizerDetails cropFertilizerDetails = cropFertilizerService.findById(id);
+	model.addAttribute("updatecropfertilizer", cropFertilizerDetails);
 	return "update_cropfertilizer_form";
 }
 
 @PostMapping("/update")
-public String UpdateCrop(@ModelAttribute("updatecropfertilizer") 	CropFertilizerDetails cr) {
-	crfe.save(cr);
+public String UpdateCrop(@ModelAttribute("updatecropfertilizer") 	CropFertilizerDetails cropFertilizerDetails) {
+	cropFertilizerService.save(cropFertilizerDetails);
 	return "redirect:/cropfertilizer/allcropfertilizerlist";
 }
 @GetMapping("/deletequantityandstage")
 public String deleteCropFertilizer(@RequestParam("id") int id) {
-	crfe.deleteById(id);
+	cropFertilizerService.deleteById(id);
 	return "redirect:/cropfertilizer/allcropfertilizerlist";
 
 }
 @GetMapping("/getquantityandstagebyid")
 public String getCropFertilizer(@RequestParam("id") int id, Model model) {
-	CropFertilizerDetails crf= crfe.findById(id);
-	model.addAttribute("findcropfertilizerbyid", crf);
+	CropFertilizerDetails cropFertilizerDetails= cropFertilizerService.findById(id);
+	model.addAttribute("findcropfertilizerbyid", cropFertilizerDetails);
 	return "find_crop_fertilizer_by_id";
 }
 }

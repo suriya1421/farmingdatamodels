@@ -11,20 +11,20 @@ import com.chainsys.farmingdatamodels.repository.DiseaseRepository;
 @Service
 public class DiseaseService {
 @Autowired
-DiseaseRepository diseaserepo;
+DiseaseRepository diseaseRepository;
 public List<Disease> getDisease(){
-	List<Disease> list=diseaserepo.findAll();
+	List<Disease> list=diseaseRepository.findAll();
 	return list;
 }
 public Disease save(Disease dis) {
-	return diseaserepo.save(dis);
+	return diseaseRepository.save(dis);
 	
 }
 public Disease findById(int id) {
-	return diseaserepo.findById(id);
+	return diseaseRepository.findById(id);
 	
 }
 public void deleteById(int id) {
-	diseaserepo.deleteById(id);
+	diseaseRepository.deleteById(id);
 	
 }}

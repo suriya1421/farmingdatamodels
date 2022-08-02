@@ -19,50 +19,50 @@ import com.chainsys.farmingdatamodels.services.DiseaseService;
 @RequestMapping("/disease")
 public class DiseaseController {
 	@Autowired
-	DiseaseService disease;
+	DiseaseService diseaseService;
 	
 	@GetMapping("/alldiseaselist")
 	public String getFindAll(Model model) {
-		List<Disease> dis = disease.getDisease();
-		model.addAttribute("allDisease", dis);
+		List<Disease> disease = diseaseService.getDisease();
+		model.addAttribute("allDisease", disease);
 		return "viewall_Disease";
 	}
 	@GetMapping("/addnewdisease")
 	public String showAddForm(Model model) {
-		Disease dis = new Disease();
-		model.addAttribute("adddisease", dis);
+		Disease disease = new Disease();
+		model.addAttribute("adddisease", disease);
 		return "add_disease_form";
 	}
 
 	@PostMapping("/add")
-	public String addNewFertilizerDetail(@ModelAttribute("adddisease") Disease dis) {
-		disease.save(dis);
+	public String addNewFertilizerDetail(@ModelAttribute("adddisease") Disease disease) {
+		diseaseService.save(disease);
 		return "redirect:/disease/alldiseaselist";
 
 	}
 	@GetMapping("/updatedisease")
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
-		Disease dis = disease.findById(id);
-		model.addAttribute("updatedisease", dis);
+		Disease disease = diseaseService.findById(id);
+		model.addAttribute("updatedisease", disease);
 		return "update_disease_form";
 	}
 
 	@PostMapping("/update")
-	public String UpdateFertilizer(@ModelAttribute("updatedisease") Disease dis) {
-		disease.save(dis);
+	public String UpdateFertilizer(@ModelAttribute("updatedisease") Disease disease) {
+		diseaseService.save(disease);
 		return "redirect:/disease/list";
 	}
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("id") int id) {
-		disease.deleteById(id);
+		diseaseService.deleteById(id);
 		return "redirect:/disease/alldiseaselist";
 
 	}
 
 	@GetMapping("/getdiseasefindbyid")
 	public String getDisease(@RequestParam("id") int id, Model model) {
-		Disease dis= disease.findById(id);
-		model.addAttribute("finddiseasebyid", dis);
+		Disease disease= diseaseService.findById(id);
+		model.addAttribute("finddiseasebyid", disease);
 		return "find_disease_by_id";
 	}
 	

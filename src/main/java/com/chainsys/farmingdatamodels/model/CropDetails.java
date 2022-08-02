@@ -2,47 +2,55 @@ package com.chainsys.farmingdatamodels.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cropdetails")
+@Table(name = "cropdetails")
 public class CropDetails {
 	@Id
-	@Column(name="crop_id")
+	@Column(name = "crop_id")
 	private int cropId;
-	@Column(name="crop_name")
+	@Column(name = "crop_name")
 	private String cropName;
-	@Column(name="description")
+	@Column(name = "description")
 	private String description;
-	@Column(name="duration")
+	@Column(name = "duration")
 	private int duration;
-	
+
 	public int getCropId() {
 		return cropId;
 	}
+
 	public void setCropId(int cropId) {
 		this.cropId = cropId;
 	}
+
 	public String getCropName() {
 		return cropName;
 	}
+
 	public void setCropName(String cropName) {
 		this.cropName = cropName;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public int getDuration() {
 		return duration;
 	}
+
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	
 
-	
 }

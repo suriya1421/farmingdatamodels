@@ -19,49 +19,49 @@ import com.chainsys.farmingdatamodels.services.CropDiseaseService;
 @RequestMapping("/cropdisease")
 public class CropDiseaseController {
 	@Autowired
-	CropDiseaseService crdis;
+	CropDiseaseService cropDiseaseService;
 
 	@GetMapping("/viewallcropdiseaselist")
 	public String getFindAll(Model model) {
-		List<CropDiseaseDetails> dis = crdis.getCropDisease();
-		model.addAttribute("allcropDisease", dis);
+		List<CropDiseaseDetails> cropDiseaseDetails = cropDiseaseService.getCropDisease();
+		model.addAttribute("allcropDisease", cropDiseaseDetails);
 		return "viewall_crop_disease";
 	}
 	@GetMapping("/addaffectionstage")
 	public String showAddForm(Model model) {
-		CropDiseaseDetails dis = new CropDiseaseDetails();
-		model.addAttribute("addcropdisease", dis);
+		CropDiseaseDetails cropDiseaseDetails = new CropDiseaseDetails();
+		model.addAttribute("addcropdisease", cropDiseaseDetails);
 		return "add_cropdisease_form";
 	}
 
 	@PostMapping("/add")
-	public String addNewCropDisease(@ModelAttribute("addcropdisease") CropDiseaseDetails crodis) {
-		crdis.save(crodis);
+	public String addNewCropDisease(@ModelAttribute("addcropdisease") CropDiseaseDetails cropDiseaseDetails) {
+		cropDiseaseService.save(cropDiseaseDetails);
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
 	@GetMapping("/updateaffectingstage")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
-		CropDiseaseDetails crdisease = crdis.findById(id);
-		model.addAttribute("updatecropdisease", crdisease);
+		CropDiseaseDetails cropDiseaseDetails = cropDiseaseService.findById(id);
+		model.addAttribute("updatecropdisease", cropDiseaseDetails);
 		return "update_cropdisease_form";
 	}
 
 	@PostMapping("/update")
-	public String UpdateCrop(@ModelAttribute("updatecropdisease") 	CropDiseaseDetails cr) {
-		crdis.save(cr);
+	public String UpdateCrop(@ModelAttribute("updatecropdisease") 	CropDiseaseDetails cropDiseaseDetails) {
+		cropDiseaseService.save(cropDiseaseDetails);
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 	}
 	@GetMapping("/deleteaffectingstage")
 	public String deleteCropDisease(@RequestParam("id") int id) {
-		crdis.deleteById(id);
+		cropDiseaseService.deleteById(id);
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
 	@GetMapping("/getaffectingstagebyid")
 	public String getCropDisease(@RequestParam("id") int id, Model model) {
-		CropDiseaseDetails dis= crdis.findById(id);
-		model.addAttribute("findCropdiseasebyid", dis);
+		CropDiseaseDetails cropDiseaseDetails= cropDiseaseService.findById(id);
+		model.addAttribute("findCropdiseasebyid", cropDiseaseDetails);
 		return "find_cropdisease_by_id";
 	}
 	

@@ -11,21 +11,21 @@ import com.chainsys.farmingdatamodels.repository.CropDiseaseDetailsRepository;
 @Service
 public class CropDiseaseService {
 @Autowired
-CropDiseaseDetailsRepository cropdis;
+CropDiseaseDetailsRepository cropDiseaseDetailsRepository;
 public List<CropDiseaseDetails> getCropDisease(){
-	List<CropDiseaseDetails> list=cropdis.findAll();
+	List<CropDiseaseDetails> list=cropDiseaseDetailsRepository.findAll();
 	return list;
 }
 public CropDiseaseDetails save(CropDiseaseDetails dis) {
-	return cropdis.save(dis);
+	return cropDiseaseDetailsRepository.save(dis);
 	
 }
 public CropDiseaseDetails findById(int id) {
-	return cropdis.findById(id);
+	return cropDiseaseDetailsRepository.findById(id);
 	
 }
 public void deleteById(int id) {
-	cropdis.deleteById(id);
+	cropDiseaseDetailsRepository.deleteById(id);
 	
 }
 }

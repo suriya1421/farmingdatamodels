@@ -11,22 +11,22 @@ import com.chainsys.farmingdatamodels.repository.FertilizerRepository;
 @Service
 public class FertilizerService {
 @Autowired
-FertilizerRepository ferrepo;
+FertilizerRepository fertilizerRepository;
 
 public List<Fertilizer> getFertilizer(){
-	List<Fertilizer> list=ferrepo.findAll();
+	List<Fertilizer> list=fertilizerRepository.findAll();
 	return list;
 }
 public Fertilizer save(Fertilizer fe) {
-	return ferrepo.save(fe);
+	return fertilizerRepository.save(fe);
 	
 }
 public Fertilizer findById(int id) {
-	return ferrepo.findById(id);
+	return fertilizerRepository.findById(id);
 	
 }
 public void deleteById(int id) {
-	ferrepo.deleteById(id);
+	fertilizerRepository.deleteById(id);
 	
 }
 

@@ -2,7 +2,6 @@ package com.chainsys.farmingdatamodels.controller;
 
 import java.util.List;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,48 +19,48 @@ import com.chainsys.farmingdatamodels.services.UserDetailsService;
 @RequestMapping("/user")
 public class UserDetailsController {
 @Autowired
-UserDetailsService user;
+UserDetailsService userDetailsService;
 @GetMapping("/alluserlist")
 public String getFindAll(Model model) {
-	List<UserDetails> listuser=user.getUser();
-	model.addAttribute("alluser", listuser);
+	List<UserDetails> userDetails=userDetailsService.getUser();
+	model.addAttribute("alluser", userDetails);
 	return "viewalluser";
 	}
 @GetMapping("/addnewuser")
 public String showAddForm(Model model) {
-	UserDetails ud=new UserDetails();
-	model.addAttribute("adduserdetail", ud);
+	UserDetails userDetails=new UserDetails();
+	model.addAttribute("adduserdetail", userDetails);
 	return "add_userdetail_form";
 }
 @PostMapping("/add")
-public String addNewUserDetail(@ModelAttribute("adduserdetail")UserDetails ud) {
-	user.save(ud);
+public String addNewUserDetail(@ModelAttribute("adduserdetail")UserDetails userDetails) {
+	userDetailsService.save(userDetails);
 	return "redirect:/user/list";
 	
 }
 @GetMapping("/updateuser")
 public String showUpdateForm(@RequestParam("update") int id, Model model ){
-    UserDetails br=user.findById(id);
-    model.addAttribute("updateuser", br);
+    UserDetails userDetails=userDetailsService.findById(id);
+    model.addAttribute("updateuser", userDetails);
     return "update_userdetail_form";
 }
 
 @PostMapping("/update")
-public String Updateuser(@ModelAttribute("updateuser") UserDetails ud) {
-    user.save(ud);
+public String Updateuser(@ModelAttribute("updateuser") UserDetails userDetails) {
+    userDetailsService.save(userDetails);
     return "redirect:/user/list";
 }
 @GetMapping("/deleteuser")
 public String deleteUser(@RequestParam("id") int id) {
-	user.deleteById(id);
+	userDetailsService.deleteById(id);
 	return "redirect:/user/list";
 	
 }
 @GetMapping("/getuserfindbyid")
 public String getUser(@RequestParam("id") int id,Model model)
 {
-    UserDetails userid=user.findById(id);
-    model.addAttribute("finduserbyid",userid);
+    UserDetails userDetails=userDetailsService.findById(id);
+    model.addAttribute("finduserbyid",userDetails);
     return "find_user_by_id";
 }
 }

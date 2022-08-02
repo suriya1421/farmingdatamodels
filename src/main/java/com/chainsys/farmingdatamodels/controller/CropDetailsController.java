@@ -20,50 +20,50 @@ import com.chainsys.farmingdatamodels.services.CropDetailsService;
 @RequestMapping("/cropdetails")
 public class CropDetailsController {
 	@Autowired
-	CropDetailsService crop;
+	CropDetailsService cropDetailsService;
 	
 	@GetMapping("/croplist")
 	public String getFindAll(Model model) {
-		List<CropDetails> cr = crop.getCrop();
-		model.addAttribute("allcrop", cr);
+		List<CropDetails> cropDetails = cropDetailsService.getCropDetailsRepository();
+		model.addAttribute("allcrop", cropDetails);
 		return "viewall_Crops";
 
 }
 	@GetMapping("/addcrop")
 	public String showAddForm(Model model) {
-		CropDetails cr = new CropDetails();
-		model.addAttribute("addcropdetails", cr);
+		CropDetails  cropDetails = new CropDetails();
+		model.addAttribute("addcropdetails",  cropDetails);
 		return "add_crop_form";
 	}
 
 	@PostMapping("/add")
-	public String addNewcrop(@ModelAttribute("addcropdetails") CropDetails cr) {
-		crop.save(cr);
-		return "redirect:/cropdetail/list";
+	public String addNewcrop(@ModelAttribute("addcropdetails") CropDetails  cropDetails) {
+		cropDetailsService.save( cropDetails);
+		return "redirect:/cropdetails/croplist";
 
 	}
 	@GetMapping("/updatecrop")
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
-		CropDetails cr = crop.findById(id);
-		model.addAttribute("updatecrop", cr);
+		CropDetails  cropDetails = cropDetailsService.findById(id);
+		model.addAttribute("updatecrop",  cropDetails);
 		return "update_crop_form";
 	}
 
 	@PostMapping("/update")
-	public String UpdateCrop(@ModelAttribute("updatecrop") CropDetails cr) {
-		crop.save(cr);
-		return "redirect:/cropdetail/list";
+	public String UpdateCrop(@ModelAttribute("updatecrop") CropDetails  cropDetails) {
+		cropDetailsService.save( cropDetails);
+		return "redirect:/cropdetails/croplist";
 	}
 	@GetMapping("/deletecrop")
 	public String deleteCrop(@RequestParam("id") int id) {
-		crop.deleteById(id);
-		return "redirect:/cropdetail/list";
+		cropDetailsService.deleteById(id);
+		return "redirect:/cropdetails/croplist";
 
 	}
 	@GetMapping("/getcropbyid")
 	public String getCrop(@RequestParam("id") int id, Model model) {
-    CropDetails cr= crop.findById(id);
-		model.addAttribute("findcropbyid", cr);
+    CropDetails cropDetails= cropDetailsService.findById(id);
+		model.addAttribute("findcropbyid",  cropDetails);
 		return "find_crop_by_id";
 	}
 }

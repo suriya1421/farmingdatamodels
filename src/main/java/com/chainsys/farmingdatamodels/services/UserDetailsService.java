@@ -11,22 +11,22 @@ import com.chainsys.farmingdatamodels.repository.UserDetailsRepository;
 @Service
 public class UserDetailsService {
 	@Autowired
-	private UserDetailsRepository userrepo;
+	private UserDetailsRepository userDetailsRepository;
 	
 	public List<UserDetails> getUser(){
-		List<UserDetails> list=userrepo.findAll();
+		List<UserDetails> list=userDetailsRepository.findAll();
 		return list;
 	}
 	public UserDetails save(UserDetails ud) {
-		return userrepo.save(ud);
+		return userDetailsRepository.save(ud);
 		
 	}
 	public UserDetails findById(int id) {
-		return userrepo.findById(id);
+		return userDetailsRepository.findById(id);
 		
 	}
 	public void deleteById(int id) {
-		userrepo.deleteById(id);
+		userDetailsRepository.deleteById(id);
 		
 	}
 	
