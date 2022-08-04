@@ -44,7 +44,7 @@ public class CropDetailsController {
 
 	}
 	@GetMapping("/updatecrop")
-	public String showUpdateForm(@RequestParam("update") int id, Model model) {
+	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		CropDetails  cropDetails = cropDetailsService.findById(id);
 		model.addAttribute("updatecrop",  cropDetails);
 		return "update_crop_form";

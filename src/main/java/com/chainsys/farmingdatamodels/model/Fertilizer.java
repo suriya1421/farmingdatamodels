@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="fertilizer")
 public class Fertilizer {
 	@Id
 	@Column(name = "fer_id")

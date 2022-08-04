@@ -58,7 +58,7 @@ public class FertilizerController {
 	@GetMapping("/deletefertilizer")
 	public String deleteFertilizer(@RequestParam("id") int id) {
 		fertilizerService.deleteById(id);
-		return "redirect:/fertilizer/list";
+		return "redirect:/fertilizer/allfertilizerlist";
 
 	}
 
