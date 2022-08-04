@@ -1,8 +1,12 @@
 package com.chainsys.farmingdatamodels.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Disease {
@@ -17,6 +21,17 @@ public class Disease {
 	private String medicine;
 	@Column(name = "prevention")
 	private String prevention;
+	
+	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY)
+	private List<CropDiseaseDetails> cropDiseaseDetails;
+
+	public List<CropDiseaseDetails> getCropDiseaseDetails() {
+		return cropDiseaseDetails;
+	}
+
+	public void setCropDiseaseDetails(List<CropDiseaseDetails> cropDiseaseDetails) {
+		this.cropDiseaseDetails = cropDiseaseDetails;
+	}
 
 	public int getDiseaseId() {
 		return diseaseId;

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.farmingdatamodels.dto.FertilizerAndFertilizerDetailsDTO;
 import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.FertilizerService;
 
@@ -66,6 +67,13 @@ public class FertilizerController {
 		Fertilizer fertilizer= fertilizerService.findById(id);
 		model.addAttribute("findfertilizerbyid", fertilizer);
 		return "find_fertilizer_by_id";
+	}
+	@GetMapping("/getfertilizeridbyfertilizer")
+	public String getfertilizeridbyfertilizer(@RequestParam("id") int id, Model model) {
+		FertilizerAndFertilizerDetailsDTO fertilizerAndFertilizerDetailsDTO	=fertilizerService.getFertilizerAndFertilizerDetails(id);
+		model.addAttribute("getFertilizer",fertilizerAndFertilizerDetailsDTO.getFertilizer());
+		model.addAttribute("getFertilizerAndFertilizerDetails", fertilizerAndFertilizerDetailsDTO.getFertilizerAndFertilizerDetails());
+		return "find_fertilizer_by_fertilizer_id";
 	}
 
 }

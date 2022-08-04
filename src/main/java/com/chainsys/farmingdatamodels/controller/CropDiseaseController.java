@@ -1,6 +1,7 @@
 package com.chainsys.farmingdatamodels.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.farmingdatamodels.compositekey.DiseaseDetailsCompositeKey;
 import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
-import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.services.CropDiseaseService;
 
 @Controller
@@ -27,6 +28,7 @@ public class CropDiseaseController {
 		model.addAttribute("allcropDisease", cropDiseaseDetails);
 		return "viewall_crop_disease";
 	}
+
 	@GetMapping("/addaffectionstage")
 	public String showAddForm(Model model) {
 		CropDiseaseDetails cropDiseaseDetails = new CropDiseaseDetails();
@@ -40,29 +42,35 @@ public class CropDiseaseController {
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
+
 	@GetMapping("/updateaffectingstage")
-	public String showUpdateForm(@RequestParam("id") int id, Model model) {
-		CropDiseaseDetails cropDiseaseDetails = cropDiseaseService.findById(id);
+	public String showUpdateForm(@RequestParam("id") int id, @RequestParam("diseaseId") int diseaseId,Model model) {
+		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey = new DiseaseDetailsCompositeKey(id, diseaseId);
+		Optional<CropDiseaseDetails> cropDiseaseDetails = cropDiseaseService.findById(diseaseDetailsCompositeKey);
 		model.addAttribute("updatecropdisease", cropDiseaseDetails);
 		return "update_cropdisease_form";
 	}
 
 	@PostMapping("/update")
-	public String UpdateCrop(@ModelAttribute("updatecropdisease") 	CropDiseaseDetails cropDiseaseDetails) {
+	public String UpdateCrop(@ModelAttribute("updatecropdisease") CropDiseaseDetails cropDiseaseDetails) {
 		cropDiseaseService.save(cropDiseaseDetails);
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 	}
+
 	@GetMapping("/deleteaffectingstage")
-	public String deleteCropDisease(@RequestParam("id") int id) {
-		cropDiseaseService.deleteById(id);
+	public String deleteCropDisease(@RequestParam("id") int id, @RequestParam("diseaseId") int diseaseId) {
+		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey=new DiseaseDetailsCompositeKey(id,diseaseId);
+		cropDiseaseService.deleteById(diseaseDetailsCompositeKey );
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
+
 	@GetMapping("/getaffectingstagebyid")
-	public String getCropDisease(@RequestParam("id") int id, Model model) {
-		CropDiseaseDetails cropDiseaseDetails= cropDiseaseService.findById(id);
+	public String getCropDisease(@RequestParam("diseaseid") int id, @RequestParam("cropId") int diseaseId, Model model) {
+		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey = new DiseaseDetailsCompositeKey(id, diseaseId);
+		Optional<CropDiseaseDetails> cropDiseaseDetails = cropDiseaseService.findById(diseaseDetailsCompositeKey);
 		model.addAttribute("findCropdiseasebyid", cropDiseaseDetails);
 		return "find_cropdisease_by_id";
 	}
-	
+
 }

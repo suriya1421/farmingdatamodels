@@ -1,8 +1,12 @@
 package com.chainsys.farmingdatamodels.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Fertilizer {
@@ -15,6 +19,17 @@ public class Fertilizer {
 	private String state;
 	@Column(name = "cost")
 	private int cost;
+
+	@OneToMany(fetch=FetchType.LAZY)
+	private List<CropFertilizerDetails> fertilizerDetails;
+
+	public List<CropFertilizerDetails> getFertilizerDetails() {
+		return fertilizerDetails;
+	}
+
+	public void setFertilizerDetails(List<CropFertilizerDetails> fertilizerDetails) {
+		this.fertilizerDetails = fertilizerDetails;
+	}
 
 	public int getFertilizerId() {
 		return fertilizerId;

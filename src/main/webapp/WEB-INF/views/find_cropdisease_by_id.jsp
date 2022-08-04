@@ -31,13 +31,10 @@
 					</div>
 
 				</div>
-				<div>
-
-					<form:button>find</form:button>
-				</div>
 			</form:form>
 		</div>
 	</div>
+
 
 </body>
 </html>

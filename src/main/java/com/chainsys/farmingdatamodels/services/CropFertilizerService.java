@@ -1,10 +1,12 @@
 package com.chainsys.farmingdatamodels.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.farmingdatamodels.compositekey.FertilizerDetailsCompositeKey;
 import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
 import com.chainsys.farmingdatamodels.repository.CropFertilizerRepository;
 
@@ -19,11 +21,11 @@ public List<CropFertilizerDetails>getCropFertilizer(){
 	public CropFertilizerDetails save(CropFertilizerDetails cr) {
 		return cropFertilizerRepository.save(cr);
 	}
-	public CropFertilizerDetails findById(int id) {
+	public Optional<CropFertilizerDetails> findById(FertilizerDetailsCompositeKey id) {
 		return cropFertilizerRepository.findById(id);
 		
 	}
-	public void deleteById(int id) {
+	public void deleteById(FertilizerDetailsCompositeKey id) {
 		cropFertilizerRepository.deleteById(id);
 	}
 }

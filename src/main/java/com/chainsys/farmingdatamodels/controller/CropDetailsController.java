@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.farmingdatamodels.dto.CropFertilizerDetailsDTO;
 import com.chainsys.farmingdatamodels.model.CropDetails;
 import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.model.Fertilizer;
@@ -65,5 +66,12 @@ public class CropDetailsController {
     CropDetails cropDetails= cropDetailsService.findById(id);
 		model.addAttribute("findcropbyid",  cropDetails);
 		return "find_crop_by_id";
+	}
+	@GetMapping("/getcropidbyfertilizer")
+	public String getCropIdByFertilizer(@RequestParam("id") int id, Model model) {
+		CropFertilizerDetailsDTO cropFertilizerDetailsDTO=cropDetailsService.getCropAndFertilizerDetails(id);
+		model.addAttribute("getcropid",cropFertilizerDetailsDTO.getCropDetails());
+		model.addAttribute("returnfertilizerdetails",cropFertilizerDetailsDTO.getCropFertilizerDetails());
+		return "list_crop_fertilizer_details";
 	}
 }

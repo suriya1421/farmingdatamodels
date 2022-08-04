@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.farmingdatamodels.dto.DiseaseAndDiseaseDetailsDTO;
 import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.DiseaseService;
@@ -50,7 +51,7 @@ public class DiseaseController {
 	@PostMapping("/update")
 	public String UpdateFertilizer(@ModelAttribute("updatedisease") Disease disease) {
 		diseaseService.save(disease);
-		return "redirect:/disease/list";
+		return "redirect:/disease/alldiseaselist";
 	}
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("id") int id) {
@@ -64,6 +65,13 @@ public class DiseaseController {
 		Disease disease= diseaseService.findById(id);
 		model.addAttribute("finddiseasebyid", disease);
 		return "find_disease_by_id";
+	}
+	@GetMapping("/getcropdiseasebydiseaseid")
+	public String getCropDiseaseByDiseaseId(@RequestParam("id") int id, Model model) {
+		DiseaseAndDiseaseDetailsDTO diseaseAndDiseaseDetailsDTO=diseaseService.getCropDiseaseDetails(id);
+		model.addAttribute("getdiseasebyid", diseaseAndDiseaseDetailsDTO.getDisease());
+		model.addAttribute("returndiseasedetails", diseaseAndDiseaseDetailsDTO.getCropDiseaseDetails());
+		return "list_disease_by_disease_id";
 	}
 	
 
