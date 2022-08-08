@@ -6,8 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -34,8 +32,18 @@ public class CropDetails {
 		this.fertilizerDetails = fertilizerDetails;
 	}
 
+	@OneToMany(mappedBy="cropDetails",fetch=FetchType.LAZY)
+	private List<CropDiseaseDetails> CropDiseaseDetails;
 	public int getCropId() {
 		return cropId;
+	}
+
+	public List<CropDiseaseDetails> getCropDiseaseDetails() {
+		return CropDiseaseDetails;
+	}
+
+	public void setCropDiseaseDetails(List<CropDiseaseDetails> cropDiseaseDetails) {
+		CropDiseaseDetails = cropDiseaseDetails;
 	}
 
 	public void setCropId(int cropId) {

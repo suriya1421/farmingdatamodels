@@ -29,6 +29,9 @@ public class UserDetailsService {
 		userDetailsRepository.deleteById(id);
 		
 	}
+	public UserDetails getUserByUserNameAndPassword(String name, String password) {
+        return userDetailsRepository.findByuserNameAndPassword(name, password);
+    }
 	
 
 }

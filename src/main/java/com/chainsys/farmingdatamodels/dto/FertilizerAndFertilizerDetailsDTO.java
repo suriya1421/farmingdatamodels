@@ -18,8 +18,8 @@ public void setFertilizer(Fertilizer fertilizer) {
 public List<CropFertilizerDetails> getFertilizerAndFertilizerDetails() {
 	return cropFertilizerDetails;
 }
-public void addFertilizerDetails(CropFertilizerDetails cropFertilizerDetail) {
-	cropFertilizerDetails.add(cropFertilizerDetail);
+public void addFertilizerDetails(List<CropFertilizerDetails> cropFertilizerDetail) {
+	this.cropFertilizerDetails=cropFertilizerDetail;
 }
  
 }

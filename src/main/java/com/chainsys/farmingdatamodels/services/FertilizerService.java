@@ -42,13 +42,9 @@ public FertilizerAndFertilizerDetailsDTO getFertilizerAndFertilizerDetails(int i
 	Fertilizer fertilizer= findById(id);
 	FertilizerAndFertilizerDetailsDTO fertilizerAndFertilizerDetailsdto=new FertilizerAndFertilizerDetailsDTO();
 	fertilizerAndFertilizerDetailsdto.setFertilizer(fertilizer);
-	List<CropFertilizerDetails>  cropFetilizerDetails=cropFertilizerRepository.findByCropId(id);
-	Iterator<CropFertilizerDetails> iterator=cropFetilizerDetails.iterator();
-	while(iterator.hasNext()) {
-		fertilizerAndFertilizerDetailsdto.addFertilizerDetails((CropFertilizerDetails) iterator.next());
-	}
+	List<CropFertilizerDetails>  cropFetilizerDetails=cropFertilizerRepository.findByFertilizerId(id);
+	fertilizerAndFertilizerDetailsdto.addFertilizerDetails(cropFetilizerDetails);
 	return fertilizerAndFertilizerDetailsdto;
-	
 	
 }
 

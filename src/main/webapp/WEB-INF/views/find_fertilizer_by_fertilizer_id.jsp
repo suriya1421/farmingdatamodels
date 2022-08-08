@@ -11,7 +11,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="getfertilizer" method="post" modelAttribute="getFertilizer">
+			<form:form action="" method="post" modelAttribute="getFertilizer">
 				<div>
 					<label for="fertilizerId">fertilizer id</label>
 					<div>
@@ -31,41 +31,39 @@
 					</div>
 
 				</div>
-					<label for="cost">cost</label>
-					<div>
-						<form:input path="cost" readonly="true"/>
-					</div>
-					
-					<div>
-						<form:button>find</form:button>
-					</div>
+				<label for="cost">cost</label>
+				<div>
+					<form:input path="cost" readonly="true" />
+				</div>
 			</form:form>
 		</div>
-	</div>
-
-<div id="returnfertilizerdetails">
+		<div id="returnfertilizerdetails">
 		<table>
 			<thead>
 				<tr>
-				    <th>crop id</th>
+					<th>crop id</th>
 					<th>fertilizer id</th>
 					<th>quantity</th>
-					<th>stage of use</th>					
-					
+					<th>stage of use</th>
+
 				</tr>
 			</thead>
-			<tbody><c:forEach var="cropfer" items="${getFertilizerAndFertilizerDetails}">
+			<tbody>
+				<c:forEach var="cropfer" items="${getFertilizerAndFertilizerDetails}">
 					<tr>
 						<td>${cropfer.cropId }</td>
 						<td>${cropfer.fertilizerId}</td>
 						<td>${cropfer.quantity}</td>
 						<td>${cropfer.stageOfUse}</td>
 					</tr>
-				
+
 				</c:forEach>
 			</tbody>
 		</table>
 
 	</div>
+	</div>
+
+	
 </body>
 </html>

@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.farmingdatamodels.dto.CropDetailsAndCropDiseaseDetailsDTO;
 import com.chainsys.farmingdatamodels.dto.CropFertilizerDetailsDTO;
 import com.chainsys.farmingdatamodels.model.CropDetails;
+import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
 import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
 import com.chainsys.farmingdatamodels.repository.CropDetailsRepository;
+import com.chainsys.farmingdatamodels.repository.CropDiseaseDetailsRepository;
 import com.chainsys.farmingdatamodels.repository.CropFertilizerRepository;
 
 @Service
@@ -18,6 +21,8 @@ public class CropDetailsService {
 	CropDetailsRepository cropDetailsRepository;
 	@Autowired
 	CropFertilizerRepository cropFertilizerRepository;
+	@Autowired
+	CropDiseaseDetailsRepository cropDiseaseDetailsRepository;
 
 	public List<CropDetails> getCropDetailsRepository() {
 		List<CropDetails> list = cropDetailsRepository.findAll();
@@ -51,6 +56,14 @@ public class CropDetailsService {
 		
 		
 
+	}
+	public CropDetailsAndCropDiseaseDetailsDTO getCropAndDiseaseDetails(int id) {
+		CropDetails cropDetails= findById(id);
+		CropDetailsAndCropDiseaseDetailsDTO cropDetailsAndCropDiseaseDetailsDTO=new CropDetailsAndCropDiseaseDetailsDTO();
+		cropDetailsAndCropDiseaseDetailsDTO.setCropDetails(cropDetails);
+		List<CropDiseaseDetails> CropDiseaseDetails=cropDiseaseDetailsRepository.findByCropId(id);
+		cropDetailsAndCropDiseaseDetailsDTO.addCropDiseaseDetails(CropDiseaseDetails);
+        return cropDetailsAndCropDiseaseDetailsDTO;
 	}
 
 }

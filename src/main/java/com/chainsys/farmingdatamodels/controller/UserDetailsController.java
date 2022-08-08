@@ -2,9 +2,12 @@ package com.chainsys.farmingdatamodels.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,9 +36,14 @@ public String showAddForm(Model model) {
 	return "add_userdetail_form";
 }
 @PostMapping("/add")
-public String addNewUserDetail(@ModelAttribute("adduserdetail")UserDetails userDetails) {
-	userDetailsService.save(userDetails);
-	return "redirect:/user/list";
+public String addNewUserDetail(@Valid @ModelAttribute("adduserdetail")UserDetails userDetails,Errors errors) {
+	if(errors.hasErrors()) {
+		return "add_userdetail_form";
+	}
+	else {
+		userDetailsService.save(userDetails);
+	return "redirect:/user/userlogin";
+	}
 	
 }
 @GetMapping("/updateuser")
@@ -48,12 +56,12 @@ public String showUpdateForm(@RequestParam("update") int id, Model model ){
 @PostMapping("/update")
 public String Updateuser(@ModelAttribute("updateuser") UserDetails userDetails) {
     userDetailsService.save(userDetails);
-    return "redirect:/user/list";
+    return "redirect:/user/alluserlist";
 }
 @GetMapping("/deleteuser")
 public String deleteUser(@RequestParam("id") int id) {
 	userDetailsService.deleteById(id);
-	return "redirect:/user/list";
+	return "redirect:/user/alluserlist";
 	
 }
 @GetMapping("/getuserfindbyid")
@@ -63,4 +71,5 @@ public String getUser(@RequestParam("id") int id,Model model)
     model.addAttribute("finduserbyid",userDetails);
     return "find_user_by_id";
 }
+
 }

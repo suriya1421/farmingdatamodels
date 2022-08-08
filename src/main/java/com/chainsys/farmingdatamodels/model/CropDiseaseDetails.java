@@ -34,6 +34,15 @@ public class CropDiseaseDetails {
 	public void setDisease(Disease disease) {
 		this.disease = disease;
 	}
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="crop_id", nullable=false,insertable=false,updatable=false)
+	private CropDetails cropDetails; 
+	public CropDetails getCropDetails() {
+		return cropDetails;
+	}
+	public void setCropDetails(CropDetails cropDetail) {
+		cropDetails = cropDetail;
+	}
 	public int getCropId() {
 		return cropId;
 	}

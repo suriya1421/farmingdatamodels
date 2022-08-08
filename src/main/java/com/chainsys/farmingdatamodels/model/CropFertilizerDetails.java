@@ -40,8 +40,8 @@ public class CropFertilizerDetails {
 	}
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fer_id",nullable = false,insertable = false,updatable = false)
+	private Fertilizer fertilizer;
 	
-	private Fertilizer  fertilizer ;
 	
 	public Fertilizer getFertilizer() {
 		return fertilizer;

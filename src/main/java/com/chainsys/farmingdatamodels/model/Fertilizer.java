@@ -22,7 +22,7 @@ public class Fertilizer {
 	@Column(name = "cost")
 	private int cost;
 
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="fertilizer",fetch=FetchType.LAZY)
 	private List<CropFertilizerDetails> fertilizerDetails;
 
 	public List<CropFertilizerDetails> getFertilizerDetails() {

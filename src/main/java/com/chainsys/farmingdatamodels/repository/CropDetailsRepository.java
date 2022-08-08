@@ -12,4 +12,5 @@ CropDetails save(CropDetails cd);
 void deleteById(int dr_id);
 List<CropDetails> findAll();
 
+
 }
