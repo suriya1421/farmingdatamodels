@@ -63,7 +63,7 @@ public class CropDetailsController {
 
 	}
 	@GetMapping("/getcropbyid")
-	public String getCrop(@RequestParam("id") int id, Model model) {
+	public String getCrop(@RequestParam("cropId") int id, Model model) {
     CropDetails cropDetails= cropDetailsService.findById(id);
 		model.addAttribute("findcropbyid",  cropDetails);
 		return "find_crop_by_id";

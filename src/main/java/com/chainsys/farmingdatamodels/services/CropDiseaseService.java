@@ -30,4 +30,7 @@ public void deleteById(DiseaseDetailsCompositeKey id) {
 	cropDiseaseDetailsRepository.deleteById(id);
 	
 }
+public List<CropDiseaseDetails> getCropDiseaseDetailsByCropId(int cropId){
+	return cropDiseaseDetailsRepository.findByCropId(cropId);
+}
 }

@@ -16,7 +16,7 @@
 				<div>
 					<label for="cropId">crop id</label>
 					<div>
-						<form:input path="cropId" readonly="true"/>
+						<form:input path="cropId" readonly="true" />
 					</div>
 				</div>
 				<div>

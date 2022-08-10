@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "adminlogin")
 public class Admin {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ADMIN_ID  ")
 	private int adminId;
 		@Column(name = "ADMIN_EMAIL")

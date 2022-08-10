@@ -28,5 +28,8 @@ public List<CropFertilizerDetails>getCropFertilizer(){
 	public void deleteById(FertilizerDetailsCompositeKey id) {
 		cropFertilizerRepository.deleteById(id);
 	}
+	public List<CropFertilizerDetails>getCropFertilizerDetailsByCropId(int cropId){
+		return cropFertilizerRepository.findByCropId(cropId);
+	}
 }
 

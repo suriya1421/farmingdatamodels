@@ -1,5 +1,6 @@
 package com.chainsys.farmingdatamodels.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,17 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.farmingdatamodels.compositekey.FertilizerDetailsCompositeKey;
-import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
 import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
-import com.chainsys.farmingdatamodels.model.Disease;
+import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.CropFertilizerService;
-
+import com.chainsys.farmingdatamodels.services.FertilizerService;
 @Controller
 @RequestMapping("/cropfertilizer")
 public class CropFertilizerController {
 	@Autowired
 	CropFertilizerService cropFertilizerService;
-
+	@Autowired
+	private FertilizerService FertilizerService;
 	@GetMapping("/allcropfertilizerlist")
 	public String getFindAll(Model model) {
 		List<CropFertilizerDetails> cropFertilizerDetails = cropFertilizerService.getCropFertilizer();
@@ -71,7 +72,19 @@ public class CropFertilizerController {
 		return "redirect:/cropfertilizer/allcropfertilizerlist";
 
 	}
-
+	@GetMapping("/getCropFertilizer")
+	public String getCropFertilizerByCropId(@RequestParam("cropid")int id, Model model) {
+		List<CropFertilizerDetails>cropFertilizerDetailslist=cropFertilizerService.getCropFertilizerDetailsByCropId(id);
+	    model.addAttribute("cropFertilizerDetailslist", cropFertilizerDetailslist);
+	    List<Fertilizer> fertilizerList=new ArrayList<>();
+	    for(int i=0;i<cropFertilizerDetailslist.size();i++){
+	    	CropFertilizerDetails cropFertilizerDetails=cropFertilizerDetailslist.get(i);
+	    	Fertilizer fertilizer=FertilizerService.findById(cropFertilizerDetails.getFertilizerId());
+	    	fertilizerList.add(fertilizer);
+	    }
+	    model.addAttribute("fertilizerList", fertilizerList);
+	    return "list-crop-fertilizer-cropId";
+	}
 	@GetMapping("/getquantityandstagebyid")
 	public String getCropFertilizer(@RequestParam("id") int id,
 			@RequestParam("fertilizerId") int fertilizerId,Model model) {

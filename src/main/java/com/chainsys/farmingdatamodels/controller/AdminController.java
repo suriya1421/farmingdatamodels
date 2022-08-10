@@ -78,7 +78,7 @@ public class AdminController {
 		Admin admin = adminService.getAdminIdAndEmailAndPassword(aDmin.getAdminId(), aDmin.getEmail(),
 				aDmin.getPassword());
 		if (admin != null) {
-			return "redirect:/admin/adminlist";
+			return "redirect:/index";
 		} else {
 			return "redirect-adminloginpage";
 		}

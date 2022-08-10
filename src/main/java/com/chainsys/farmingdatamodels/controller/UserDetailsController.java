@@ -40,11 +40,9 @@ public String addNewUserDetail(@Valid @ModelAttribute("adduserdetail")UserDetail
 	if(errors.hasErrors()) {
 		return "add_userdetail_form";
 	}
-	else {
-		userDetailsService.save(userDetails);
-	return "redirect:/user/userlogin";
-	}
 	
+		userDetailsService.save(userDetails);
+	return "redirect:/user/alluserlist";
 }
 @GetMapping("/updateuser")
 public String showUpdateForm(@RequestParam("update") int id, Model model ){
@@ -54,9 +52,15 @@ public String showUpdateForm(@RequestParam("update") int id, Model model ){
 }
 
 @PostMapping("/update")
-public String Updateuser(@ModelAttribute("updateuser") UserDetails userDetails) {
-    userDetailsService.save(userDetails);
-    return "redirect:/user/alluserlist";
+public String Updateuser(@Valid@ModelAttribute("updateuser") UserDetails userDetails,Errors errors) {
+	if(errors.hasErrors()) {
+		return "update_userdetail_form";
+	}
+	else {
+		userDetailsService.save(userDetails);
+	return "redirect:/user/alluserlist";
+	}
+	
 }
 @GetMapping("/deleteuser")
 public String deleteUser(@RequestParam("id") int id) {
@@ -71,5 +75,4 @@ public String getUser(@RequestParam("id") int id,Model model)
     model.addAttribute("finduserbyid",userDetails);
     return "find_user_by_id";
 }
-
 }

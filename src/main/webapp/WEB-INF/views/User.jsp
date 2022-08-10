@@ -1,0 +1,136 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<style type="text/css">
+body {
+    background-image: url("https://i.pinimg.com/originals/6c/55/bb/6c55bb682541f51946025683440b8d10.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+h1 {
+    color: blue;
+    margin-left: 450px;
+}
+
+label {
+    color: blue;
+    font-size: 1.3em;
+    display: flex;
+    margin: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+#userId {
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#secretword {
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#userType {
+    width: 260px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#log {
+    width: 150px;
+    height: 30px;
+    border: black;
+    border-radius: 3px;
+    padding-left: 8px; 
+    color: white;
+    background-color: maroon;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.box {
+    width: 400px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    float: center;
+    background-color: #C9DFEC;
+    
+}
+#log {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#cont {
+position: relative;
+left: 100px;
+}
+</style>
+</head>
+<body>
+<br>
+    <h1 id="cont">User Login</h1>
+    <br>
+    <div id="root" class="box">
+        <div id="form">
+            <table>
+                <form:form action="checkuserlogin" method="post"
+                    modelAttribute="user">
+                    <tr>
+                        <div>
+                            <td><label for="userName">User Name</label></td>
+                            <div>
+                                <td><form:input path="userName" class="form-control" required="true" placeholder="Enter Name"/></td>
+                            </div>
+                            <form:errors path="userName" cssClass="text-danger"/>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div>
+                            <td><label for="Password">Password</label></td>
+                            <div>
+                                <td><form:input type="password" path="Password" title='password must begin with letter and contain atleast one number and must have atleast 8 characters'
+                        required="true" placeholder="Enter Password"
+                                        class="form-control" /></td>
+                            </div>
+                            <form:errors path="userName" cssClass="text-danger"/>
+                        </div>
+                        <br>
+                    </tr>
+                    
+                    <tr>
+                        <div>
+                            <td colspan="5" align="right"><br> <form:button
+                                    id="log">Login</form:button></td>
+                        </div>
+                        
+                    </tr>
+                </form:form>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

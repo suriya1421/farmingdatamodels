@@ -61,8 +61,8 @@ public class DiseaseController {
 	}
 
 	@GetMapping("/getdiseasefindbyid")
-	public String getDisease(@RequestParam("id") int id, Model model) {
-		Disease disease= diseaseService.findById(id);
+	public String getDisease(@RequestParam("disease") Disease disease, Model model) {
+//		Disease disease= diseaseService.findById(id);
 		model.addAttribute("finddiseasebyid", disease);
 		return "find_disease_by_id";
 	}

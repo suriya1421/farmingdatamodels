@@ -27,7 +27,7 @@ public class CropDetails {
 	public List<CropFertilizerDetails> getFertilizerDetails() {
 		return fertilizerDetails;
 	}
-
+    
 	public void setFertilizerDetails(List<CropFertilizerDetails> fertilizerDetails) {
 		this.fertilizerDetails = fertilizerDetails;
 	}

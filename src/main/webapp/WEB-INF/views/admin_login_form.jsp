@@ -16,25 +16,20 @@
                     <h1 align="center">Admin Login</h1>
                 </div>
                 <div>
-                    <label for="adminId">Admin Id</label>
-                    <div>
-                        <form:input path="adminId" />
-                    </div>
-                </div>
-                <div>
                     <label for="email">Admin Email</label>
                     <div>
-                        <form:input path="email" />
+                        <form:input path="email" required="true" placeholder="Enter Email" />
                     </div>
                 </div>
                 <div>
                     <label for="password">Password</label>
                     <div>
-                        <form:input path="password" type = "password" />
+                        <form:input path="password" type = "password" required="true" placeholder="Enter Password" />
                     </div>
                 </div>
                 <div>
-                <form:button value ="SignIn">SignIn</form:button>
+                <a href="/user/alluserlist">
+                <form:button value ="SignIn">SignIn</form:button></a>
                 <form:button type = "reset" value = "Clear">Reset</form:button>
                 </div>
             </form:form>

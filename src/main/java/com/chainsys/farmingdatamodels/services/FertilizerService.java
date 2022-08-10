@@ -22,8 +22,7 @@ FertilizerRepository fertilizerRepository;
 CropFertilizerRepository cropFertilizerRepository;
 
 public List<Fertilizer> getFertilizer(){
-	List<Fertilizer> list=fertilizerRepository.findAll();
-	return list;
+	return fertilizerRepository.findAll();
 }
 public Fertilizer save(Fertilizer fe) {
 	return fertilizerRepository.save(fe);
@@ -37,6 +36,7 @@ public void deleteById(int id) {
 	fertilizerRepository.deleteById(id);
 	
 }
+
 
 public FertilizerAndFertilizerDetailsDTO getFertilizerAndFertilizerDetails(int id) {
 	Fertilizer fertilizer= findById(id);

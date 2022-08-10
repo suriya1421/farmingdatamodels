@@ -1,5 +1,6 @@
 package com.chainsys.farmingdatamodels.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,13 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.farmingdatamodels.compositekey.DiseaseDetailsCompositeKey;
 import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
+import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.services.CropDiseaseService;
+import com.chainsys.farmingdatamodels.services.DiseaseService;
 
 @Controller
 @RequestMapping("/cropdisease")
 public class CropDiseaseController {
 	@Autowired
 	CropDiseaseService cropDiseaseService;
+	@Autowired
+	DiseaseService DiseaseService;
 
 	@GetMapping("/viewallcropdiseaselist")
 	public String getFindAll(Model model) {
@@ -64,6 +69,12 @@ public class CropDiseaseController {
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 
 	}
+	@GetMapping("/getcropdiseasebycropid")
+	public String getCropDisease(@RequestParam("disease")int id,Model model) {
+		 List<CropDiseaseDetails>cropDiseaseList=cropDiseaseService.getCropDiseaseDetailsByCropId(id);
+		    model.addAttribute("cropDiseaseList", cropDiseaseList);
+		return "list-crop-disease-cropId";
+	}
 
 	@GetMapping("/getaffectingstagebyid")
 	public String getCropDisease(@RequestParam("diseaseid") int id, @RequestParam("cropId") int diseaseId, Model model) {
@@ -71,6 +82,19 @@ public class CropDiseaseController {
 		Optional<CropDiseaseDetails> cropDiseaseDetails = cropDiseaseService.findById(diseaseDetailsCompositeKey);
 		model.addAttribute("findCropdiseasebyid", cropDiseaseDetails);
 		return "find_cropdisease_by_id";
+	}
+	@GetMapping("/getCropDisease")
+	public String getCropDiseaseByCropId(@RequestParam("cropid")int id, Model model) {
+		List<CropDiseaseDetails>cropDiseaseDetailslist=cropDiseaseService.getCropDiseaseDetailsByCropId(id);
+	    model.addAttribute("cropDiseaseDetailslist", cropDiseaseDetailslist);
+	    List<Disease> diseaselist=new ArrayList<>();
+	    for(int i=0;i<cropDiseaseDetailslist.size();i++){
+	    	CropDiseaseDetails cropDiseaseDetails=cropDiseaseDetailslist.get(i);
+	    	Disease disease=DiseaseService.findById(cropDiseaseDetails.getDiseaseId());
+	    	diseaselist.add(disease);
+	    }
+	    model.addAttribute("diseaseList", diseaselist);
+	    return "list_crop_disease_cropId";
 	}
 
 }

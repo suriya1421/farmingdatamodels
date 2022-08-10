@@ -7,6 +7,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update User Details</title>
+<style>
+.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 <div id="root">
@@ -23,28 +29,32 @@
                     <div>
                         <form:input path="userName" />
                     </div>
+                    <form:errors path="userName" cssClass="text-danger" />
                 </div>
                 <div>
                     <label for="password">password</label>
                     <div>
                         <form:input path="password" />
                     </div>
+                    <form:errors path="password" cssClass="text-danger" />
                 </div>
-                <div>
                     <label for="email">Email</label>
                     <div>
                         <form:input path="email" />
                     </div>
+                    <form:errors path="email" cssClass="text-danger" />
                     <div>
                     <label for="phoneNumber">Phone Number</label>
                     <div>
                         <form:input path="phoneNumber" />
                     </div>
+                    <form:errors path="phoneNumber" cssClass="text-danger" />
                     <div>
                     <label for="address">Address</label>
                     <div>
                         <form:input path="address" />
                     </div>
+                    <form:errors path="address" cssClass="text-danger" />
                 </div>
                 
                 </div>
