@@ -95,4 +95,6 @@ public class CropFertilizerController {
 		model.addAttribute("findcropfertilizerbyid", cropFertilizerDetails);
 		return "find_crop_fertilizer_by_id";
 	}
+	
+	
 }

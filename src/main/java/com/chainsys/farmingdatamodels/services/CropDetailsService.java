@@ -42,7 +42,9 @@ public class CropDetailsService {
 	public void deleteById(int id) {
 		cropDetailsRepository.deleteById(id);
 	}
-
+	public List<CropDetails> getFindAll(){
+		return cropDetailsRepository.findAll();
+	}
 	public CropFertilizerDetailsDTO getCropAndFertilizerDetails(int id) {
 		CropDetails cropDetails= findById(id);
 		CropFertilizerDetailsDTO cropFertilizerDetailsDTO=new CropFertilizerDetailsDTO();

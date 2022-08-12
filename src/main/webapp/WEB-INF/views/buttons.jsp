@@ -3,15 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>buttons</title>
 <style>
 body {
 	text-align: center;
-	background-image:
-		url("");
+	background-image:url("https://i.pinimg.com/originals/03/2c/90/032c90f4513c314497e4007ca4b8a926.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -19,67 +18,80 @@ body {
 }
 
 .button {
-	top: 100px;
+	position: absolute;
+	left: 220px;
+	top: 400px;
+	background-color: blue;
+	padding: 12px 28px;
+	border: none;
+	color: tomato;
+	font-weight: bold;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
 	font-size: 40px;
-	width: 100%;
-	left: 60px;
-	border-radius: 20px;
-	margin: 30px;
-	padding: 20px;
+	margin: 6px 3px;
+	cursor: pointer;
+	width: 25%;
+}
+
+.button2 {
+	position: absolute;
+	left: 640px;
+	top: 400px;
+	padding: 12px 28px;
+	background-color: blue;
+	border: none;
+	color: tomato;
+	font-weight: bold;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 40px;
+	margin: 6px 3px;
+	cursor: pointer;
+	width: 25%;
 }
 
 .container {
-	max-width: 700px;
-	width: 100%;
 	height: 50vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
 	margin: auto;
-	top: 100px;
-	left: 270px;
+}
+
+.button1 {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 18px;
 }
 </style>
 </head>
 <body>
-	<div id="root">
-		<div id="form">
-			<form:form action="" method="get" modelAttribute="cropDetails">
-				<div>
-					<label for="cropId">crop id</label>
-					<div>
-						<form:input path="cropId" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="cropName">crop Name</label>
-					<div>
-						<form:input path="cropName" readonly="true" />
-					</div>
-					<div>
-						<label for="description">description</label>
-						<div>
-							<form:input path="description" readonly="true" />
-						</div>
-					</div>
+	<div>
 
-				</div>
-				<div>
-					<label for="duration">duration</label>
-					<div>
-						<form:input path="duration"  readonly="true"/>
-					</div>
-				</div>
-			</form:form>
-		</div>
-	</div>
-			 <a href="/cropfertilizer/getCropFertilizer?cropid=${cropId}">
-			<button class="button">Fertilizer</button>
-		</a> <br /> <a
-			href="/cropdisease/getCropDisease?cropid=${cropId}">
-			<button class="button">Disease</button>
-		</a> <br />
+		<p style="font-size: 30px;">Name of the Crop is: ${cropName }
+		
+	
+		</p>
+		<p style="font-size: 30px;">The Growing period of this plant is
+			: ${duration } Days
+		<div></div>
+		<p style="font-size: 30px;">Description: ${cropDetailsDiscription}
+		<div style="font-size: 30px;"></div>
+		<p>
+			<a href="/cropfertilizer/getCropFertilizer?cropid=${cropId}">
+				<button class="button">Fertilizer</button>
+			</a> <br /> <a href="/cropdisease/getCropDisease?cropid=${cropId}">
+				<button class="button2">Disease</button>
+			</a> <br /> <a href="/home/search">
+				<button class="button1">Back</button>
+			</a> <br />
 	</div>
 </body>
 </html>

@@ -12,24 +12,28 @@ import com.chainsys.farmingdatamodels.repository.CropFertilizerRepository;
 
 @Service
 public class CropFertilizerService {
-@Autowired
-CropFertilizerRepository cropFertilizerRepository;
-public List<CropFertilizerDetails>getCropFertilizer(){
-	List<CropFertilizerDetails> list=cropFertilizerRepository.findAll();
-	return list;
-}
+	@Autowired
+	CropFertilizerRepository cropFertilizerRepository;
+
+	public List<CropFertilizerDetails> getCropFertilizer() {
+		List<CropFertilizerDetails> list = cropFertilizerRepository.findAll();
+		return list;
+	}
+
 	public CropFertilizerDetails save(CropFertilizerDetails cr) {
 		return cropFertilizerRepository.save(cr);
 	}
+
 	public Optional<CropFertilizerDetails> findById(FertilizerDetailsCompositeKey id) {
 		return cropFertilizerRepository.findById(id);
-		
+
 	}
+
 	public void deleteById(FertilizerDetailsCompositeKey id) {
 		cropFertilizerRepository.deleteById(id);
 	}
-	public List<CropFertilizerDetails>getCropFertilizerDetailsByCropId(int cropId){
+
+	public List<CropFertilizerDetails> getCropFertilizerDetailsByCropId(int cropId) {
 		return cropFertilizerRepository.findByCropId(cropId);
 	}
 }
-

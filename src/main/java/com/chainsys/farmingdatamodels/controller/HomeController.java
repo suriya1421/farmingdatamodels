@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.chainsys.farmingdatamodels.model.CropDetails;
 import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
 import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
+import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.model.UserDetails;
 import com.chainsys.farmingdatamodels.services.CropDetailsService;
 import com.chainsys.farmingdatamodels.services.CropDiseaseService;
 import com.chainsys.farmingdatamodels.services.CropFertilizerService;
+import com.chainsys.farmingdatamodels.services.DiseaseService;
 import com.chainsys.farmingdatamodels.services.FertilizerService;
 import com.chainsys.farmingdatamodels.services.UserDetailsService;
 
@@ -48,7 +50,7 @@ public class HomeController {
 
 	        return "redirect:/home/search";
 	    } else
-	        return "invalid-customer-error";
+	        return "invalid-user-error";
 
 	}
 	@GetMapping("/search")
@@ -62,9 +64,12 @@ public class HomeController {
 	@PostMapping("/button")
 	public String button(@ModelAttribute("cropDetails")CropDetails cropDetails,Model model) {
 	    model.addAttribute("cropId", cropDetails.getCropId());
-	    
-	    
-	   
+	    CropDetails cropDetail=cropdetailsService.findById(cropDetails.getCropId());
+	    model.addAttribute("cropDetail", cropDetail);
+	    model.addAttribute("cropDetailsDiscription", cropDetail.getDescription());
+	    model.addAttribute("cropid",cropDetail.getCropId());
+	    model.addAttribute("cropName", cropDetail.getCropName());
+	    model.addAttribute("duration", cropDetail.getDuration());
 	    return "buttons";
 	}   
 	@GetMapping("/homepage1")
@@ -72,5 +77,19 @@ public class HomeController {
 	    
 	    return "Home";
 	}  
+	
+	@GetMapping("/index")
+	public String index(Model model) {
+	    
+	    return "index";
+	}
+	   
+	@GetMapping("/login")
+	public String userSignupPageToLogin(Model model) {
+	    
+	    return "redirect_signup_to_signin";
+	}
+	   
+	 
 	
 }

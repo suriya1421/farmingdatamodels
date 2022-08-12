@@ -75,10 +75,10 @@ public class AdminController {
 
 	@PostMapping("/checkadminlogin")
 	public String checkingAccess(@ModelAttribute("adminlogin") Admin aDmin) {
-		Admin admin = adminService.getAdminIdAndEmailAndPassword(aDmin.getAdminId(), aDmin.getEmail(),
+		Admin admin = adminService.getEmailAndPassword(aDmin.getEmail(),
 				aDmin.getPassword());
 		if (admin != null) {
-			return "redirect:/index";
+			return "redirect:/home/index";
 		} else {
 			return "redirect-adminloginpage";
 		}

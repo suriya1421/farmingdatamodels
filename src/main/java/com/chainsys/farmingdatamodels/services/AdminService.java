@@ -28,7 +28,7 @@ public void deleteById(int id) {
 	 adminRepository.deleteById(id);
 	
 }
-public Admin getAdminIdAndEmailAndPassword(int id ,String email,String password) {
-	return adminRepository.findByAdminIdAndEmailAndPassword(id, email, password);
+public Admin getEmailAndPassword(String email,String password) {
+	return adminRepository.findByEmailAndPassword( email, password);
 }
 }

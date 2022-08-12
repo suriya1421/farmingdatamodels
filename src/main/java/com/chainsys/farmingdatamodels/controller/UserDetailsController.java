@@ -42,7 +42,7 @@ public String addNewUserDetail(@Valid @ModelAttribute("adduserdetail")UserDetail
 	}
 	
 		userDetailsService.save(userDetails);
-	return "redirect:/user/alluserlist";
+	return "redirect:/home/login";
 }
 @GetMapping("/updateuser")
 public String showUpdateForm(@RequestParam("update") int id, Model model ){
