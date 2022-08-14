@@ -65,13 +65,14 @@ public class HomeController {
 	public String button(@ModelAttribute("cropDetails")CropDetails cropDetails,Model model) {
 	    model.addAttribute("cropId", cropDetails.getCropId());
 	    CropDetails cropDetail=cropdetailsService.findById(cropDetails.getCropId());
-	    model.addAttribute("cropDetail", cropDetail);
+	    model.addAttribute("cropDetails", cropDetail);
 	    model.addAttribute("cropDetailsDiscription", cropDetail.getDescription());
 	    model.addAttribute("cropid",cropDetail.getCropId());
 	    model.addAttribute("cropName", cropDetail.getCropName());
 	    model.addAttribute("duration", cropDetail.getDuration());
 	    return "buttons";
-	}   
+	} 
+	
 	@GetMapping("/homepage1")
 	public String first1(Model model) {
 	    
