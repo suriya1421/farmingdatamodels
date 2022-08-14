@@ -33,17 +33,17 @@ public class CropDetails {
 	}
 
 	@OneToMany(mappedBy="cropDetails",fetch=FetchType.LAZY)
-	private List<CropDiseaseDetails> CropDiseaseDetails;
+	private List<CropDiseaseDetails> cropDiseaseDetails;
 	public int getCropId() {
 		return cropId;
 	}
 
 	public List<CropDiseaseDetails> getCropDiseaseDetails() {
-		return CropDiseaseDetails;
+		return cropDiseaseDetails;
 	}
 
-	public void setCropDiseaseDetails(List<CropDiseaseDetails> cropDiseaseDetails) {
-		CropDiseaseDetails = cropDiseaseDetails;
+	public void setCropDiseaseDetails(List<CropDiseaseDetails> cropDiseaseDetail) {
+		this.cropDiseaseDetails = cropDiseaseDetail;
 	}
 
 	public void setCropId(int cropId) {

@@ -5,11 +5,10 @@ import java.util.List;
 
 import com.chainsys.farmingdatamodels.model.CropDetails;
 import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
-import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
 
 public class CropDetailsAndCropDiseaseDetailsDTO {
 	private CropDetails cropDetails;
-	private List<CropDiseaseDetails> CropDiseaseDetails=new ArrayList<CropDiseaseDetails>();
+	private List<CropDiseaseDetails> cropDiseaseDetails=new ArrayList<>();
 	public CropDetails getCropDetails() {
 		return cropDetails;
 	}
@@ -18,10 +17,10 @@ public class CropDetailsAndCropDiseaseDetailsDTO {
 	}
 
 	public List<CropDiseaseDetails> getCropDiseaseDetails() {
-		return CropDiseaseDetails;
+		return cropDiseaseDetails;
 	}
 	public void addCropDiseaseDetails(List<CropDiseaseDetails> cropDiseaseDetails) {
-		this.CropDiseaseDetails=cropDiseaseDetails;
+		this.cropDiseaseDetails=cropDiseaseDetails;
 	}
 	 
 	 

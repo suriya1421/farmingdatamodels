@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="root">
+	<div id="root">
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="getdiseasebyid">
 				<div>
@@ -31,40 +31,40 @@
 					</div>
 
 				</div>
-					<label for="medicine">medicine</label>
+				<label for="medicine">medicine</label>
+				<div>
+					<form:input path="medicine" readonly="true" />
+				</div>
+				<div>
+					<label for="prevention">prevention</label>
 					<div>
-						<form:input path="medicine"  readonly="true"/>
+						<form:input path="prevention" readonly="true" />
 					</div>
-					<div>
-						<label for="prevention">prevention</label>
-						<div>
-							<form:input path="prevention" readonly="true"/>
-						</div>
-					</div>
-					<div>
-						<form:button>find</form:button>
-					</div>
+				</div>
+
 			</form:form>
 		</div>
 	</div>
 
-<div id="table root">
-		<table>
+	<div id="table root">
+		<table><caption></caption>
+			<caption></caption>
 			<thead>
 				<tr>
-				    <th>crop id</th>
+					<th>crop id</th>
 					<th>disease id</th>
-					<th>affecting stages</th>					
-					
+					<th>affecting stages</th>
+
 				</tr>
 			</thead>
-			<tbody><c:forEach var="cropdisease" items="${returndiseasedetails}">
+			<tbody>
+				<c:forEach var="cropdisease" items="${returndiseasedetails}">
 					<tr>
 						<td>${cropdisease.cropId }</td>
 						<td>${cropdisease.diseaseId}</td>
 						<td>${cropdisease.affectingStages}</td>
 					</tr>
-				
+
 				</c:forEach>
 			</tbody>
 		</table>

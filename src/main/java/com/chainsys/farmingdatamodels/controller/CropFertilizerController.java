@@ -24,7 +24,7 @@ public class CropFertilizerController {
 	@Autowired
 	CropFertilizerService cropFertilizerService;
 	@Autowired
-	private FertilizerService FertilizerService;
+	private FertilizerService fertilizerService;
 	@GetMapping("/allcropfertilizerlist")
 	public String getFindAll(Model model) {
 		List<CropFertilizerDetails> cropFertilizerDetails = cropFertilizerService.getCropFertilizer();
@@ -60,7 +60,7 @@ public class CropFertilizerController {
 	}
 
 	@PostMapping("/update")
-	public String UpdateCrop(@ModelAttribute("updatecropfertilizer") CropFertilizerDetails cropFertilizerDetails) {
+	public String updateCrop(@ModelAttribute("updatecropfertilizer") CropFertilizerDetails cropFertilizerDetails) {
 		cropFertilizerService.save(cropFertilizerDetails);
 		return "redirect:/cropfertilizer/allcropfertilizerlist";
 	}
@@ -79,7 +79,7 @@ public class CropFertilizerController {
 	    List<Fertilizer> fertilizerList=new ArrayList<>();
 	    for(int i=0;i<cropFertilizerDetailslist.size();i++){
 	    	CropFertilizerDetails cropFertilizerDetails=cropFertilizerDetailslist.get(i);
-	    	Fertilizer fertilizer=FertilizerService.findById(cropFertilizerDetails.getFertilizerId());
+	    	Fertilizer fertilizer=fertilizerService.findById(cropFertilizerDetails.getFertilizerId());
 	    	fertilizerList.add(fertilizer);
 	    }
 	    model.addAttribute("fertilizerList", fertilizerList);

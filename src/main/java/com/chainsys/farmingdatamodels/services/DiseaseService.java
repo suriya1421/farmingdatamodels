@@ -19,8 +19,7 @@ DiseaseRepository diseaseRepository;
 @Autowired
 CropDiseaseDetailsRepository cropDiseaseDetailsRepository;
 public List<Disease> getDisease(){
-	List<Disease> list=diseaseRepository.findAll();
-	return list;
+	return diseaseRepository.findAll();
 }
 public Disease save(Disease dis) {
 	return diseaseRepository.save(dis);
@@ -41,7 +40,7 @@ public DiseaseAndDiseaseDetailsDTO getCropDiseaseDetails(int id) {
 	List<CropDiseaseDetails> cropDiseaseDetails=cropDiseaseDetailsRepository.findByDiseaseId(id);
 	Iterator<CropDiseaseDetails> iterator=cropDiseaseDetails.iterator();
 	while(iterator.hasNext()) {
-		diseaseAndDiseaseDetailsDTO.addCropDiseaseDetails((CropDiseaseDetails)iterator.next());
+		diseaseAndDiseaseDetailsDTO.addCropDiseaseDetails(iterator.next());
 	}
 	return diseaseAndDiseaseDetailsDTO;
 }

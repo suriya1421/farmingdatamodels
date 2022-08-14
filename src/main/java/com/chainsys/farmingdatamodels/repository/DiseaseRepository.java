@@ -9,6 +9,6 @@ import com.chainsys.farmingdatamodels.model.Disease;
 public interface DiseaseRepository extends CrudRepository<Disease,Integer> {
 	Disease findById(int id);
 	Disease save(Disease cd);
-	void deleteById(int disease_id);
+	void deleteById(int diseaseid);
 	List<Disease> findAll();
 }

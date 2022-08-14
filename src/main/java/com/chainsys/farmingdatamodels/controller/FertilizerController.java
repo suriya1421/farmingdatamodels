@@ -50,7 +50,7 @@ public class FertilizerController {
 	}
 
 	@PostMapping("/update")
-	public String UpdateFertilizer(@ModelAttribute("updatecrop") Fertilizer fertilizer) {
+	public String updateFertilizer(@ModelAttribute("updatecrop") Fertilizer fertilizer) {
 		fertilizerService.save(fertilizer);
 		return "redirect:/fertilizer/allfertilizerlist";
 	}

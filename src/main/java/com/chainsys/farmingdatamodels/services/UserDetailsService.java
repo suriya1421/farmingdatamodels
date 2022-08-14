@@ -14,8 +14,7 @@ public class UserDetailsService {
 	private UserDetailsRepository userDetailsRepository;
 	
 	public List<UserDetails> getUser(){
-		List<UserDetails> list=userDetailsRepository.findAll();
-		return list;
+		return userDetailsRepository.findAll();
 	}
 	public UserDetails save(UserDetails ud) {
 		return userDetailsRepository.save(ud);

@@ -52,7 +52,7 @@ public String showUpdateForm(@RequestParam("update") int id, Model model ){
 }
 
 @PostMapping("/update")
-public String Updateuser(@Valid@ModelAttribute("updateuser") UserDetails userDetails,Errors errors) {
+public String updateuser(@Valid@ModelAttribute("updateuser") UserDetails userDetails,Errors errors) {
 	if(errors.hasErrors()) {
 		return "update_userdetail_form";
 	}

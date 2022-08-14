@@ -38,7 +38,7 @@
 			</form:form>
 		</div>
 		<div id="returnfertilizerdetails">
-		<table>
+		<table> <caption></caption>
 			<thead>
 				<tr>
 					<th>crop id</th>

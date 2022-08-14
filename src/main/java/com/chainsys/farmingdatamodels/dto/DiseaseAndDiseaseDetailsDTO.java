@@ -8,7 +8,7 @@ import com.chainsys.farmingdatamodels.model.Disease;
 
 public class DiseaseAndDiseaseDetailsDTO {
 	private Disease  disease;
-	 private List<CropDiseaseDetails> cropDiseaseDetails=new ArrayList<CropDiseaseDetails>();
+	 private List<CropDiseaseDetails> cropDiseaseDetails=new ArrayList<>();
 	 
  public Disease getDisease() {
 		return disease;

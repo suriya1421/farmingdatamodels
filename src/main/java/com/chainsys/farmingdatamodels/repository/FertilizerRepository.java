@@ -9,6 +9,6 @@ import com.chainsys.farmingdatamodels.model.Fertilizer;
 public interface FertilizerRepository extends CrudRepository<Fertilizer,Integer> {
 	Fertilizer findById(int id);
 	Fertilizer save(Fertilizer cd);
-	void deleteById(int fertilizer_id);
+	void deleteById(int fertilizerid);
 	List<Fertilizer> findAll();
 }

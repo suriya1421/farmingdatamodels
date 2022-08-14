@@ -25,8 +25,7 @@ public class CropDetailsService {
 	CropDiseaseDetailsRepository cropDiseaseDetailsRepository;
 
 	public List<CropDetails> getCropDetailsRepository() {
-		List<CropDetails> list = cropDetailsRepository.findAll();
-		return list;
+		return cropDetailsRepository.findAll();
 	}
 
 	public CropDetails save(CropDetails cr) {
@@ -52,7 +51,7 @@ public class CropDetailsService {
 		List<CropFertilizerDetails>  cropFetilizerDetails=cropFertilizerRepository.findByCropId(id);
 		Iterator<CropFertilizerDetails> iterator=cropFetilizerDetails.iterator();
 		while(iterator.hasNext()) {
-			cropFertilizerDetailsDTO.addcropFertilizerDetails((CropFertilizerDetails ) iterator.next());
+			cropFertilizerDetailsDTO.addcropFertilizerDetails(iterator.next());
 		}
 		return cropFertilizerDetailsDTO;
 		
@@ -63,8 +62,8 @@ public class CropDetailsService {
 		CropDetails cropDetails= findById(id);
 		CropDetailsAndCropDiseaseDetailsDTO cropDetailsAndCropDiseaseDetailsDTO=new CropDetailsAndCropDiseaseDetailsDTO();
 		cropDetailsAndCropDiseaseDetailsDTO.setCropDetails(cropDetails);
-		List<CropDiseaseDetails> CropDiseaseDetails=cropDiseaseDetailsRepository.findByCropId(id);
-		cropDetailsAndCropDiseaseDetailsDTO.addCropDiseaseDetails(CropDiseaseDetails);
+		List<CropDiseaseDetails> cropDiseaseDetails=cropDiseaseDetailsRepository.findByCropId(id);
+		cropDetailsAndCropDiseaseDetailsDTO.addCropDiseaseDetails(cropDiseaseDetails);
         return cropDetailsAndCropDiseaseDetailsDTO;
 	}
 

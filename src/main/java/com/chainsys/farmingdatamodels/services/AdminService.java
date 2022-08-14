@@ -13,8 +13,7 @@ public class AdminService {
 @Autowired
 private AdminRepository  adminRepository;
 public List<Admin> getAdminLogin(){
-		List<Admin> admin= adminRepository.findAll();
-		return admin;
+		return adminRepository.findAll();
 }
 public Admin save(Admin admin) {
 	return adminRepository.save(admin) ;

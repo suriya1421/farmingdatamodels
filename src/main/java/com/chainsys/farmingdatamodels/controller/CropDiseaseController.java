@@ -25,7 +25,7 @@ public class CropDiseaseController {
 	@Autowired
 	CropDiseaseService cropDiseaseService;
 	@Autowired
-	DiseaseService DiseaseService;
+	DiseaseService diseaseService;
 
 	@GetMapping("/viewallcropdiseaselist")
 	public String getFindAll(Model model) {
@@ -57,7 +57,7 @@ public class CropDiseaseController {
 	}
 
 	@PostMapping("/update")
-	public String UpdateCrop(@ModelAttribute("updatecropdisease") CropDiseaseDetails cropDiseaseDetails) {
+	public String updateCrop(@ModelAttribute("updatecropdisease") CropDiseaseDetails cropDiseaseDetails) {
 		cropDiseaseService.save(cropDiseaseDetails);
 		return "redirect:/cropdisease/viewallcropdiseaselist";
 	}
@@ -90,7 +90,7 @@ public class CropDiseaseController {
 	    List<Disease> diseaselist=new ArrayList<>();
 	    for(int i=0;i<cropDiseaseDetailslist.size();i++){
 	    	CropDiseaseDetails cropDiseaseDetails=cropDiseaseDetailslist.get(i);
-	    	Disease disease=DiseaseService.findById(cropDiseaseDetails.getDiseaseId());
+	    	Disease disease=diseaseService.findById(cropDiseaseDetails.getDiseaseId());
 	    	diseaselist.add(disease);
 	    }
 	    model.addAttribute("diseaseList", diseaselist);

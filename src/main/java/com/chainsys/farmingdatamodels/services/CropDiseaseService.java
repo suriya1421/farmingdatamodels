@@ -15,8 +15,7 @@ public class CropDiseaseService {
 @Autowired
 CropDiseaseDetailsRepository cropDiseaseDetailsRepository;
 public List<CropDiseaseDetails> getCropDisease(){
-	List<CropDiseaseDetails> list=cropDiseaseDetailsRepository.findAll();
-	return list;
+	return cropDiseaseDetailsRepository.findAll();
 }
 public CropDiseaseDetails save(CropDiseaseDetails dis) {
 	return cropDiseaseDetailsRepository.save(dis);

@@ -20,45 +20,42 @@ th, td {
 </head>
 <body>
 	<div id="returnfertilizerdetails">
-		<table>
-			
-				<tr>
-		<!-- 		<th>fertilizer id</th> -->
+		<table><caption></caption>
+
+			<tr>
 				<th>Fertilizer Name</th>
-					<th>State</th>
-					<th>Cost</th>
-					</tr>
-				<c:forEach var="fertilizerList" items="${fertilizerList}">
-					<tr>
-					 <%--    <td> ${fertilizerList.fertilizerId}</td> --%>
-						<td>${fertilizerList.fertilizerName}</td>
-						<td>${fertilizerList.state}</td>
-						<td>${fertilizerList.cost}</td>
-					</tr>
-				</c:forEach>
-				
-			</table>
-			<table>
-			
-			
-			
+				<th>State</th>
+				<th>Cost</th>
+			</tr>
+			<c:forEach var="fertilizerList" items="${fertilizerList}">
 				<tr>
-					<!-- <th>crop id</th> -->
-					<!-- <th>fertilizer id</th> -->
-					<th>quantity</th>
-					<th>stage of use</th>
-					
+					<td>${fertilizerList.fertilizerName}</td>
+					<td>${fertilizerList.state}</td>
+					<td>${fertilizerList.cost}</td>
+				</tr>
+			</c:forEach>
+
+		</table>
+		<table>
+			<caption></caption>
+
+
+
+			<tr>
+
+				<th>quantity</th>
+				<th>stage of use</th>
+
 			</tr>
 
-				<c:forEach var="cropfer" items="${cropFertilizerDetailslist}">
-					<tr>
-						<%-- <td>${cropfer.cropId }</td> --%>
-						<%-- <td>${cropfer.fertilizerId}</td> --%>
-						<td>${cropfer.quantity}</td>
-						<td>${cropfer.stageOfUse}</td>
-					</tr>	
-				</c:forEach>
-		
+			<c:forEach var="cropfer" items="${cropFertilizerDetailslist}">
+				<tr>
+
+					<td>${cropfer.quantity}</td>
+					<td>${cropfer.stageOfUse}</td>
+				</tr>
+			</c:forEach>
+
 		</table>
 
 	</div>

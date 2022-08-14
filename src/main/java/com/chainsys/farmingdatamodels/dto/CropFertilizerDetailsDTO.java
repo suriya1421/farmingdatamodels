@@ -8,7 +8,7 @@ import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
 
 public class CropFertilizerDetailsDTO {
 	private CropDetails cropDetails;
-	private List<CropFertilizerDetails> cropFertilizerDetails=new ArrayList<CropFertilizerDetails>();
+	private List<CropFertilizerDetails> cropFertilizerDetails=new ArrayList<>();
 	public CropDetails getCropDetails() {
 		return cropDetails;
 	}

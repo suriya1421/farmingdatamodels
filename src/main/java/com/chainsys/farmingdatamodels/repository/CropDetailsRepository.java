@@ -9,7 +9,7 @@ import com.chainsys.farmingdatamodels.model.CropDetails;
 public interface CropDetailsRepository extends CrudRepository<CropDetails,Integer>{
 CropDetails findById(int id);
 CropDetails save(CropDetails cd);
-void deleteById(int dr_id);
+void deleteById(int id);
 List<CropDetails> findAll();
 
 

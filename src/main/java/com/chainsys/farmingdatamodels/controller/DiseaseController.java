@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.farmingdatamodels.dto.DiseaseAndDiseaseDetailsDTO;
 import com.chainsys.farmingdatamodels.model.Disease;
-import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.DiseaseService;
 
 @Controller
@@ -49,7 +48,7 @@ public class DiseaseController {
 	}
 
 	@PostMapping("/update")
-	public String UpdateFertilizer(@ModelAttribute("updatedisease") Disease disease) {
+	public String updateFertilizer(@ModelAttribute("updatedisease") Disease disease) {
 		diseaseService.save(disease);
 		return "redirect:/disease/alldiseaselist";
 	}
@@ -62,7 +61,6 @@ public class DiseaseController {
 
 	@GetMapping("/getdiseasefindbyid")
 	public String getDisease(@RequestParam("disease") Disease disease, Model model) {
-//		Disease disease= diseaseService.findById(id);
 		model.addAttribute("finddiseasebyid", disease);
 		return "find_disease_by_id";
 	}

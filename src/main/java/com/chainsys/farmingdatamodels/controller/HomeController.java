@@ -11,15 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chainsys.farmingdatamodels.model.CropDetails;
-import com.chainsys.farmingdatamodels.model.CropDiseaseDetails;
-import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
-import com.chainsys.farmingdatamodels.model.Disease;
 import com.chainsys.farmingdatamodels.model.UserDetails;
 import com.chainsys.farmingdatamodels.services.CropDetailsService;
-import com.chainsys.farmingdatamodels.services.CropDiseaseService;
-import com.chainsys.farmingdatamodels.services.CropFertilizerService;
-import com.chainsys.farmingdatamodels.services.DiseaseService;
-import com.chainsys.farmingdatamodels.services.FertilizerService;
 import com.chainsys.farmingdatamodels.services.UserDetailsService;
 
 @Controller
@@ -29,12 +22,6 @@ public class HomeController {
 	UserDetailsService userDetailsService;
 	@Autowired
 	private CropDetailsService cropdetailsService;
-	@Autowired 
-	private FertilizerService fertilizerService;
-	@Autowired
-	private CropFertilizerService cropFertilizerService;
-	@Autowired
-	private CropDiseaseService CropDiseaseService;
 	
 	@GetMapping("/userlogin")
 	public String adminaccessform(Model model) {

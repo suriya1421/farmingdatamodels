@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table><caption></caption>
 			<thead>
 				<tr>
 				    <th>crop id</th>

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.farmingdatamodels.dto.CropDetailsAndCropDiseaseDetailsDTO;
 import com.chainsys.farmingdatamodels.dto.CropFertilizerDetailsDTO;
 import com.chainsys.farmingdatamodels.model.CropDetails;
-import com.chainsys.farmingdatamodels.model.Disease;
-import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.CropDetailsService;
 
 @Controller
@@ -52,7 +50,7 @@ public class CropDetailsController {
 	}
 
 	@PostMapping("/update")
-	public String UpdateCrop(@ModelAttribute("updatecrop") CropDetails  cropDetails) {
+	public String updateCrop(@ModelAttribute("updatecrop") CropDetails  cropDetails) {
 		cropDetailsService.save( cropDetails);
 		return "redirect:/cropdetails/croplist";
 	}
