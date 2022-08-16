@@ -22,7 +22,7 @@ h1 {
 
 label {
 	color: blue;
-	font-size: 1.3em;
+	font-size: 50;
 	display: flex;
 	margin: 5px;
 	font-weight: bold;

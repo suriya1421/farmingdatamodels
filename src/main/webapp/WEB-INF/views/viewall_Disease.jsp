@@ -17,6 +17,8 @@
 					<th>reason</th>
 					<th>medicine</th>
 					<th>prevention</th>
+					<th>update</th>
+					<th>delete</th>
 					
 				</tr>
 			</thead>
@@ -27,11 +29,14 @@
 						<td>${disease.reason}</td>
 						<td>${disease.medicine}</td>
 						<td>${disease.prevention}</td>
+						<td><a href="/disease/updatedisease?update=${disease.diseaseId} ">update</a></td>
+						<td><a href="/disease/deletedisease?id=${disease.diseaseId} ">delete</a></td>
 					</tr>
 				
 				</c:forEach>
 			</tbody>
 		</table>
+		<a href="/disease/addnewdisease"><button class="button">add</button></a>
 
 	</div>
 </body>

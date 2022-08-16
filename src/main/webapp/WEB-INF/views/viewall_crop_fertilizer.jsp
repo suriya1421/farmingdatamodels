@@ -15,7 +15,9 @@
 				    <th>crop id</th>
 					<th>fertilizer id</th>
 					<th>quantity</th>
-					<th>stage of use</th>					
+					<th>stage of use</th>
+					<th>update</th>
+					<th>delete</th>					
 					
 				</tr>
 			</thead>
@@ -25,11 +27,14 @@
 						<td>${cropfer.fertilizerId}</td>
 						<td>${cropfer.quantity}</td>
 						<td>${cropfer.stageOfUse}</td>
+						<td><a href="/cropfertilizer/updatequantityandstage?id=${cropfer.cropId }&fertilizerId=${cropfer.fertilizerId}">update</a></td>
+						<td><a href="/cropfertilizer/deletequantityandstage?id=${cropfer.cropId }&fertilizerId=${cropfer.fertilizerId}">delete</a></td>
 					</tr>
 				
 				</c:forEach>
 			</tbody>
 		</table>
+		<a href="/cropfertilizer/addquantityandstage"><button class="button">add</button></a>
 
 	</div>
 </body>

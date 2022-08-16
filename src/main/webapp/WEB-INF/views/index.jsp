@@ -6,21 +6,24 @@
 <meta charset="ISO-8859-1">
 <title>Crop Details</title>
 <style>
-body{
-text-align:center;
-background-image:url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3JnYW5pYyUyMGZhcm1pbmd8ZW58MHx8MHx8&w=1000&q=80");
-background-repeat: no-repeat;
-background-attachment:fixed;
-background-size:100% 100%;
-font-weight:bold;
+body {
+	text-align: center;
+	background-image:
+		url("https://images.pexels.com/photos/628281/pexels-photo-628281.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	font-weight: bold;
 }
 a{
-   color:#FF0400;
+   color:black;
+   font-weight: bold;
    
 }
 h1{
-color:white;
-font-size:20pt";
+color:red;
+font-size:30pt";
+font-size: 25px;
 }
 
 </style>

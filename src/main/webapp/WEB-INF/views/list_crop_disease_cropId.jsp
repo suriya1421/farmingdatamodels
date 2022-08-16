@@ -7,10 +7,29 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
+body {
+	text-align: center;
+	background-image:url("https://images.pexels.com/photos/82256/pexels-photo-82256.jpeg?auto=compress&cs=tinysrgb&w=600");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	font-weight: bold;
+}
 table, th, td {
 	border: 1px solid black;
 	padding: 15px;
 	text-align: left;
+}
+th{
+color:red;
+font-size:160%;
+font-style:bold;
+
+}
+td{
+color:black;
+font-size:120%;
+font-style:bold;
 }
 
 th, td {

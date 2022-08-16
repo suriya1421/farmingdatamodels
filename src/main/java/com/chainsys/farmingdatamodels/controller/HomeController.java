@@ -69,7 +69,7 @@ public class HomeController {
 	@GetMapping("/index")
 	public String index(Model model) {
 	    
-	    return "index";
+	    return "index2";
 	}
 	   
 	@GetMapping("/login")

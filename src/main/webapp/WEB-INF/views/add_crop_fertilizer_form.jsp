@@ -7,11 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Crop fertilizer</title>
+<style>
+<%@include file="/WEB-INF/views/css/adminadd.css"%>
+</style>
 </head>
 <body>
-	<div id="root">
-		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addcropfertilizer">
+			<div class="form">
 				<div>
 					<label for="cropId">crop id</label>
 					<div>
@@ -38,7 +40,7 @@
 					</div>
 
 					<form:button>Add New</form:button>
-				</div>
+				</div></div>
 			</form:form>
 		</div>
 	</div>

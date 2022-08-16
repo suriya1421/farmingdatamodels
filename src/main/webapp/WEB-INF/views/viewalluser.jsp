@@ -19,6 +19,7 @@
 					<th>Phone no</th>
 					<th>Address</th>
 					
+					
 				</tr>
 			</thead>
 			<tbody><c:forEach var="user" items="${alluser}">

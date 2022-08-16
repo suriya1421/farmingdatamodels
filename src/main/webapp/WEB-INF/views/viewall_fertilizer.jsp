@@ -16,7 +16,8 @@
 					<th>ferName</th>
 					<th>state</th>
 					<th>cost</th>
-					<th>stock in hand</th>
+					<th>update</th>
+					<th>delete</th>
 					
 				</tr>
 			</thead>
@@ -26,11 +27,15 @@
 						<td>${fertilizer.fertilizerName  }</td>
 						<td>${fertilizer.state}</td>
 						<td>${fertilizer. cost}</td>
+						<td><a href="/fertilizer/updatefertilizer?id=${fertilizer.fertilizerId }">update</a><td>
+						<td><a href="/fertilizer/deletefertilizer?id=${fertilizer.fertilizerId }">delete</a>
+						
 					</tr>
 				
 				</c:forEach>
 			</tbody>
 		</table>
+		<a herf=/fertilizer/addfertilizer><button class="button">add</button></a>
 
 	</div>
 </body>
