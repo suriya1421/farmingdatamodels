@@ -21,6 +21,10 @@ import com.chainsys.farmingdatamodels.services.CropDetailsService;
 public class CropDetailsController {
 	@Autowired
 	CropDetailsService cropDetailsService;
+	private static final String ADDCROPFORM="add_crop_form";
+	private static final String ADDCROPLIST="redirect:/cropdetails/croplist";
+	private static final String UPDATECROP="update_crop_form";
+	
 	
 	@GetMapping("/croplist")
 	public String getFindAll(Model model) {
@@ -33,31 +37,31 @@ public class CropDetailsController {
 	public String showAddForm(Model model) {
 		CropDetails  cropDetails = new CropDetails();
 		model.addAttribute("addcropdetails",  cropDetails);
-		return "add_crop_form";
+		return ADDCROPFORM;
 	}
 
 	@PostMapping("/add")
 	public String addNewcrop(@ModelAttribute("addcropdetails") CropDetails  cropDetails) {
 		cropDetailsService.save( cropDetails);
-		return "redirect:/cropdetails/croplist";
+		return ADDCROPLIST;
 
 	}
 	@GetMapping("/updatecrop")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		CropDetails  cropDetails = cropDetailsService.findById(id);
 		model.addAttribute("updatecrop",  cropDetails);
-		return "update_crop_form";
+		return UPDATECROP;
 	}
 
 	@PostMapping("/update")
 	public String updateCrop(@ModelAttribute("updatecrop") CropDetails  cropDetails) {
 		cropDetailsService.save( cropDetails);
-		return "redirect:/cropdetails/croplist";
+		return ADDCROPLIST;
 	}
 	@GetMapping("/deletecrop")
 	public String deleteCrop(@RequestParam("id") int id) {
 		cropDetailsService.deleteById(id);
-		return "redirect:/cropdetails/croplist";
+		return ADDCROPLIST;
 
 	}
 	@GetMapping("/getcropbyid")

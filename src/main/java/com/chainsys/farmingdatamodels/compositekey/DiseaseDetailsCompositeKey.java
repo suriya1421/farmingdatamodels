@@ -1,14 +1,16 @@
 package com.chainsys.farmingdatamodels.compositekey;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
 
 public class DiseaseDetailsCompositeKey implements Serializable {
-	@Column(name = "disease_id")
-	private int diseaseId;
-	@Column(name = "crop_id")
+	@Column(name="crop_id")
 	private int cropId;
+	@Column(name="disease_id")
+	private int diseaseId;
 
 	public DiseaseDetailsCompositeKey() {
 
@@ -33,6 +35,23 @@ public class DiseaseDetailsCompositeKey implements Serializable {
 
 	public void setDiseaseId(int diseaseId) {
 		this.diseaseId = diseaseId;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cropId, diseaseId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DiseaseDetailsCompositeKey other = (DiseaseDetailsCompositeKey) obj;
+		return cropId == other.cropId && diseaseId == other.diseaseId;
 	}
 
 }

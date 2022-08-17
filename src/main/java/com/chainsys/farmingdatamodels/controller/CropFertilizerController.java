@@ -18,6 +18,7 @@ import com.chainsys.farmingdatamodels.model.CropFertilizerDetails;
 import com.chainsys.farmingdatamodels.model.Fertilizer;
 import com.chainsys.farmingdatamodels.services.CropFertilizerService;
 import com.chainsys.farmingdatamodels.services.FertilizerService;
+
 @Controller
 @RequestMapping("/cropfertilizer")
 public class CropFertilizerController {
@@ -25,6 +26,10 @@ public class CropFertilizerController {
 	CropFertilizerService cropFertilizerService;
 	@Autowired
 	private FertilizerService fertilizerService;
+	public static final String ADDCROPFERTILIZER = "add_crop_fertilizer_form";
+	public static final String LISTCROPFERTILIZER = "redirect:/cropfertilizer/allcropfertilizerlist";
+	public static final String UPDATECROPFERTILIZER = "update_cropfertilizer_form";
+
 	@GetMapping("/allcropfertilizerlist")
 	public String getFindAll(Model model) {
 		List<CropFertilizerDetails> cropFertilizerDetails = cropFertilizerService.getCropFertilizer();
@@ -37,14 +42,14 @@ public class CropFertilizerController {
 	public String showAddForm(Model model) {
 		CropFertilizerDetails cropFertilizerDetails = new CropFertilizerDetails();
 		model.addAttribute("addcropfertilizer", cropFertilizerDetails);
-		return "add_crop_fertilizer_form";
+		return ADDCROPFERTILIZER;
 	}
 
 	@PostMapping("/add")
 	public String addNewFertilizerDetail(
 			@ModelAttribute("addcropfertilizer") CropFertilizerDetails cropFertilizerDetails) {
 		cropFertilizerService.save(cropFertilizerDetails);
-		return "redirect:/cropfertilizer/allcropfertilizerlist";
+		return LISTCROPFERTILIZER;
 
 	}
 
@@ -56,38 +61,42 @@ public class CropFertilizerController {
 		Optional<CropFertilizerDetails> cropFertilizerDetails = cropFertilizerService
 				.findById(fertilizerDetailsCompositeKey);
 		model.addAttribute("updatecropfertilizer", cropFertilizerDetails);
-		return "update_cropfertilizer_form";
+		return UPDATECROPFERTILIZER;
 	}
 
 	@PostMapping("/update")
 	public String updateCrop(@ModelAttribute("updatecropfertilizer") CropFertilizerDetails cropFertilizerDetails) {
 		cropFertilizerService.save(cropFertilizerDetails);
-		return "redirect:/cropfertilizer/allcropfertilizerlist";
+		return LISTCROPFERTILIZER;
 	}
 
 	@GetMapping("/deletequantityandstage")
 	public String deleteCropFertilizer(@RequestParam("id") int id, @RequestParam("fertilizerId") int fertilizerId) {
-		FertilizerDetailsCompositeKey fertilizerDetailsCompositeKey = new FertilizerDetailsCompositeKey(id,fertilizerId);
+		FertilizerDetailsCompositeKey fertilizerDetailsCompositeKey = new FertilizerDetailsCompositeKey(id,
+				fertilizerId);
 		cropFertilizerService.deleteById(fertilizerDetailsCompositeKey);
-		return "redirect:/cropfertilizer/allcropfertilizerlist";
+		return LISTCROPFERTILIZER;
 
 	}
+
 	@GetMapping("/getCropFertilizer")
-	public String getCropFertilizerByCropId(@RequestParam("cropid")int id, Model model) {
-		List<CropFertilizerDetails>cropFertilizerDetailslist=cropFertilizerService.getCropFertilizerDetailsByCropId(id);
-	    model.addAttribute("cropFertilizerDetailslist", cropFertilizerDetailslist);
-	    List<Fertilizer> fertilizerList=new ArrayList<>();
-	    for(int i=0;i<cropFertilizerDetailslist.size();i++){
-	    	CropFertilizerDetails cropFertilizerDetails=cropFertilizerDetailslist.get(i);
-	    	Fertilizer fertilizer=fertilizerService.findById(cropFertilizerDetails.getFertilizerId());
-	    	fertilizerList.add(fertilizer);
-	    }
-	    model.addAttribute("fertilizerList", fertilizerList);
-	    return "list-crop-fertilizer-cropId";
+	public String getCropFertilizerByCropId(@RequestParam("cropid") int id, Model model) {
+		List<CropFertilizerDetails> cropFertilizerDetailslist = cropFertilizerService
+				.getCropFertilizerDetailsByCropId(id);
+		model.addAttribute("cropFertilizerDetailslist", cropFertilizerDetailslist);
+		List<Fertilizer> fertilizerList = new ArrayList<>();
+		for (int i = 0; i < cropFertilizerDetailslist.size(); i++) {
+			CropFertilizerDetails cropFertilizerDetails = cropFertilizerDetailslist.get(i);
+			Fertilizer fertilizer = fertilizerService.findById(cropFertilizerDetails.getFertilizerId());
+			fertilizerList.add(fertilizer);
+		}
+		model.addAttribute("fertilizerList", fertilizerList);
+		return "list-crop-fertilizer-cropId";
 	}
+
 	@GetMapping("/getquantityandstagebyid")
-	public String getCropFertilizer(@RequestParam("id") int id,
-			@RequestParam("fertilizerId") int fertilizerId,Model model) {
+	public String getCropFertilizer(@RequestParam("id") int id, @RequestParam("fertilizerId") int fertilizerId,
+			Model model) {
 		FertilizerDetailsCompositeKey fertilizerDetailsCompositeKey = new FertilizerDetailsCompositeKey(id,
 				fertilizerId);
 		Optional<CropFertilizerDetails> cropFertilizerDetails = cropFertilizerService
@@ -95,6 +104,5 @@ public class CropFertilizerController {
 		model.addAttribute("findcropfertilizerbyid", cropFertilizerDetails);
 		return "find_crop_fertilizer_by_id";
 	}
-	
-	
+
 }

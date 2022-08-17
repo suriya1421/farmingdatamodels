@@ -84,6 +84,9 @@ body {
 .con .button2{
     margin-top: 24px;
     margin-right: 400px;
+     position:absolute; 
+    top:370px; 
+    right:400px;
     background-color: #c2fbd7;
 	border-radius: 100px;
 	box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,

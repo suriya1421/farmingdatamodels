@@ -19,6 +19,9 @@ import com.chainsys.farmingdatamodels.services.AdminService;
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
+	public static final String ADDADMIN="add-admin-login-form";
+	public static final String LISTADMIN="redirect:/admin/adminlist";
+	public static final String UPDATEADMIN="update-admin-login-form";
 
 	@GetMapping("/adminlist")
 	public String getAllAdminLogin(Model model) {
@@ -38,26 +41,26 @@ public class AdminController {
 	public String showAdminLoginForm(Model model) {
 		Admin admin = new Admin();
 		model.addAttribute("addadminlogin", admin);
-		return "add-admin-login-form";
+		return ADDADMIN;
 	}
 
 	@PostMapping("/addnewadminlogin")
 	public String addNewAdminLogin(@ModelAttribute("addadminlogin") Admin admin) {
 		adminService.save(admin);
-		return "redirect:/admin/adminlist";
+		return LISTADMIN;
 	}
 
 	@GetMapping("/updateadminloginform")
 	public String showUpdateAdminLoginForm(@RequestParam("adminid") int adminid, Model model) {
 		Admin adminlogin = adminService.findById(adminid);
 		model.addAttribute("updateadminlogin", adminlogin);
-		return "update-admin-login-form";
+		return UPDATEADMIN;
 	}
 
 	@PostMapping("/updatenewadminlogin")
 	public String updateNewAdminLogin(@ModelAttribute("updateadminlogin") Admin admin) {
 		adminService.save(admin);
-		return "redirect:/admin/adminlist";
+		return LISTADMIN;
 	}
 
 	@GetMapping("deleteadminlogin")

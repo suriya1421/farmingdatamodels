@@ -17,62 +17,69 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.farmingdatamodels.model.UserDetails;
 import com.chainsys.farmingdatamodels.services.UserDetailsService;
 
-
 @Controller
 @RequestMapping("/user")
 public class UserDetailsController {
-@Autowired
-UserDetailsService userDetailsService;
-@GetMapping("/alluserlist")
-public String getFindAll(Model model) {
-	List<UserDetails> userDetails=userDetailsService.getUser();
-	model.addAttribute("alluser", userDetails);
-	return "viewalluser";
-	}
-@GetMapping("/addnewuser")
-public String showAddForm(Model model) {
-	UserDetails userDetails=new UserDetails();
-	model.addAttribute("adduserdetail", userDetails);
-	return "add_userdetail_form";
-}
-@PostMapping("/add")
-public String addNewUserDetail(@Valid @ModelAttribute("adduserdetail")UserDetails userDetails,Errors errors) {
-	if(errors.hasErrors()) {
-		return "add_userdetail_form";
-	}
-	
-		userDetailsService.save(userDetails);
-	return "redirect:/home/login";
-}
-@GetMapping("/updateuser")
-public String showUpdateForm(@RequestParam("update") int id, Model model ){
-    UserDetails userDetails=userDetailsService.findById(id);
-    model.addAttribute("updateuser", userDetails);
-    return "update_userdetail_form";
-}
+	@Autowired
+	UserDetailsService userDetailsService;
 
-@PostMapping("/update")
-public String updateuser(@Valid@ModelAttribute("updateuser") UserDetails userDetails,Errors errors) {
-	if(errors.hasErrors()) {
-		return "update_userdetail_form";
+	public static final String ADDUSER = "add_userdetail_form";
+	public static final String LISTOFUSER = "redirect:/user/alluserlist";
+	public static final String UPDATEUSER = "update_userdetail_form";
+
+	@GetMapping("/alluserlist")
+	public String getFindAll(Model model) {
+		List<UserDetails> userDetails = userDetailsService.getUser();
+		model.addAttribute("alluser", userDetails);
+		return "viewalluser";
 	}
-	else {
+
+	@GetMapping("/addnewuser")
+	public String showAddForm(Model model) {
+		UserDetails userDetails = new UserDetails();
+		model.addAttribute("adduserdetail", userDetails);
+		return ADDUSER;
+	}
+
+	@PostMapping("/add")
+	public String addNewUserDetail(@Valid @ModelAttribute("adduserdetail") UserDetails userDetails, Errors errors) {
+		if (errors.hasErrors()) {
+			return ADDUSER;
+		}
+
 		userDetailsService.save(userDetails);
-	return "redirect:/user/alluserlist";
+		return LISTOFUSER;
 	}
-	
-}
-@GetMapping("/deleteuser")
-public String deleteUser(@RequestParam("id") int id) {
-	userDetailsService.deleteById(id);
-	return "redirect:/user/alluserlist";
-	
-}
-@GetMapping("/getuserfindbyid")
-public String getUser(@RequestParam("id") int id,Model model)
-{
-    UserDetails userDetails=userDetailsService.findById(id);
-    model.addAttribute("finduserbyid",userDetails);
-    return "find_user_by_id";
-}
+
+	@GetMapping("/updateuser")
+	public String showUpdateForm(@RequestParam("update") int id, Model model) {
+		UserDetails userDetails = userDetailsService.findById(id);
+		model.addAttribute("updateuser", userDetails);
+		return UPDATEUSER;
+	}
+
+	@PostMapping("/update")
+	public String updateuser(@Valid @ModelAttribute("updateuser") UserDetails userDetails, Errors errors) {
+		if (errors.hasErrors()) {
+			return UPDATEUSER;
+		} else {
+			userDetailsService.save(userDetails);
+			return LISTOFUSER;
+		}
+
+	}
+
+	@GetMapping("/deleteuser")
+	public String deleteUser(@RequestParam("id") int id) {
+		userDetailsService.deleteById(id);
+		return LISTOFUSER;
+
+	}
+
+	@GetMapping("/getuserfindbyid")
+	public String getUser(@RequestParam("id") int id, Model model) {
+		UserDetails userDetails = userDetailsService.findById(id);
+		model.addAttribute("finduserbyid", userDetails);
+		return "find_user_by_id";
+	}
 }

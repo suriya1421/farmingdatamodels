@@ -20,6 +20,9 @@ import com.chainsys.farmingdatamodels.services.FertilizerService;
 public class FertilizerController {
 	@Autowired
 	FertilizerService fertilizerService;
+	public static final String ADDFERTILIZER = "add_fertilizer_form";
+	public static final String LISTOFFERTILIZER= "redirect:/fertilizer/allfertilizerlist";
+	public static final String UPDATEFERTILIZER = "update_fertilizer_form";
 
 	@GetMapping("/allfertilizerlist")
 	public String getFindAll(Model model) {
@@ -32,13 +35,13 @@ public class FertilizerController {
 	public String showAddForm(Model model) {
 		Fertilizer fertilizer = new Fertilizer();
 		model.addAttribute("addfertilizer", fertilizer);
-		return "add_fertilizer_form";
+		return ADDFERTILIZER;
 	}
 
 	@PostMapping("/add")
 	public String addNewFertilizerDetail(@ModelAttribute("addfertilizer") Fertilizer fe) {
 		fertilizerService.save(fe);
-		return "redirect:/fertilizer/allfertilizerlist";
+		return LISTOFFERTILIZER;
 
 	}
 
@@ -46,19 +49,19 @@ public class FertilizerController {
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		Fertilizer fertilizer = fertilizerService.findById(id);
 		model.addAttribute("updatefertilizer", fertilizer);
-		return "update_fertilizer_form";
+		return UPDATEFERTILIZER;
 	}
 
 	@PostMapping("/update")
 	public String updateFertilizer(@ModelAttribute("updatecrop") Fertilizer fertilizer) {
 		fertilizerService.save(fertilizer);
-		return "redirect:/fertilizer/allfertilizerlist";
+		return LISTOFFERTILIZER;
 	}
 
 	@GetMapping("/deletefertilizer")
 	public String deleteFertilizer(@RequestParam("id") int id) {
 		fertilizerService.deleteById(id);
-		return "redirect:/fertilizer/allfertilizerlist";
+		return LISTOFFERTILIZER;
 
 	}
 

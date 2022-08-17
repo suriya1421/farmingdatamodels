@@ -20,6 +20,9 @@ import com.chainsys.farmingdatamodels.services.DiseaseService;
 public class DiseaseController {
 	@Autowired
 	DiseaseService diseaseService;
+	public static final String ADDDISEASE = "add_disease_form";
+	public static final String LISTOFDISEASE= "redirect:/disease/alldiseaselist";
+	public static final String UPDATEDISEASE = "update_disease_form";
 	
 	@GetMapping("/alldiseaselist")
 	public String getFindAll(Model model) {
@@ -31,31 +34,31 @@ public class DiseaseController {
 	public String showAddForm(Model model) {
 		Disease disease = new Disease();
 		model.addAttribute("adddisease", disease);
-		return "add_disease_form";
+		return ADDDISEASE;
 	}
 
 	@PostMapping("/add")
 	public String addNewFertilizerDetail(@ModelAttribute("adddisease") Disease disease) {
 		diseaseService.save(disease);
-		return "redirect:/disease/alldiseaselist";
+		return LISTOFDISEASE;
 
 	}
 	@GetMapping("/updatedisease")
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
 		Disease disease = diseaseService.findById(id);
 		model.addAttribute("updatedisease", disease);
-		return "update_disease_form";
+		return UPDATEDISEASE;
 	}
 
 	@PostMapping("/update")
 	public String updateFertilizer(@ModelAttribute("updatedisease") Disease disease) {
 		diseaseService.save(disease);
-		return "redirect:/disease/alldiseaselist";
+		return LISTOFDISEASE;
 	}
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("id") int id) {
 		diseaseService.deleteById(id);
-		return "redirect:/disease/alldiseaselist";
+		return LISTOFDISEASE;
 
 	}
 

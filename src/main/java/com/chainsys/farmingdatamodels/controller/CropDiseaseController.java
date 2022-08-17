@@ -26,6 +26,10 @@ public class CropDiseaseController {
 	CropDiseaseService cropDiseaseService;
 	@Autowired
 	DiseaseService diseaseService;
+	public static final String ADDCROPDISEASE="add_cropdisease_form";
+	public static final String LISTCROPDISEASE="redirect:/cropdisease/viewallcropdiseaselist";
+	public static final String UPDATECROPDISEASE="update_cropdisease_form";
+
 
 	@GetMapping("/viewallcropdiseaselist")
 	public String getFindAll(Model model) {
@@ -38,35 +42,35 @@ public class CropDiseaseController {
 	public String showAddForm(Model model) {
 		CropDiseaseDetails cropDiseaseDetails = new CropDiseaseDetails();
 		model.addAttribute("addcropdisease", cropDiseaseDetails);
-		return "add_cropdisease_form";
+		return ADDCROPDISEASE;
 	}
 
 	@PostMapping("/add")
 	public String addNewCropDisease(@ModelAttribute("addcropdisease") CropDiseaseDetails cropDiseaseDetails) {
 		cropDiseaseService.save(cropDiseaseDetails);
-		return "redirect:/cropdisease/viewallcropdiseaselist";
+		return LISTCROPDISEASE;
 
 	}
 
 	@GetMapping("/updateaffectingstage")
 	public String showUpdateForm(@RequestParam("id") int id, @RequestParam("diseaseId") int diseaseId,Model model) {
-		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey = new DiseaseDetailsCompositeKey(id, diseaseId);
+		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey = new DiseaseDetailsCompositeKey(diseaseId, id);
 		Optional<CropDiseaseDetails> cropDiseaseDetails = cropDiseaseService.findById(diseaseDetailsCompositeKey);
 		model.addAttribute("updatecropdisease", cropDiseaseDetails);
-		return "update_cropdisease_form";
+		return UPDATECROPDISEASE;
 	}
 
 	@PostMapping("/update")
 	public String updateCrop(@ModelAttribute("updatecropdisease") CropDiseaseDetails cropDiseaseDetails) {
 		cropDiseaseService.save(cropDiseaseDetails);
-		return "redirect:/cropdisease/viewallcropdiseaselist";
+		return LISTCROPDISEASE;
 	}
 
 	@GetMapping("/deleteaffectingstage")
 	public String deleteCropDisease(@RequestParam("id") int id, @RequestParam("diseaseId") int diseaseId) {
-		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey=new DiseaseDetailsCompositeKey(id,diseaseId);
-		cropDiseaseService.deleteById(diseaseDetailsCompositeKey );
-		return "redirect:/cropdisease/viewallcropdiseaselist";
+		DiseaseDetailsCompositeKey diseaseDetailsCompositeKey=new DiseaseDetailsCompositeKey(diseaseId,id);
+		cropDiseaseService.deleteById(diseaseDetailsCompositeKey);
+		return LISTCROPDISEASE;
 
 	}
 	@GetMapping("/getcropdiseasebycropid")
