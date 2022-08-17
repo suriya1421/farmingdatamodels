@@ -45,6 +45,7 @@
 	</div>
 	<div id="returnfertilizerdetails">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 				    <th>crop id</th>
