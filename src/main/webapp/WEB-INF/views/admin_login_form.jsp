@@ -20,11 +20,11 @@ body {
 </head>
 <body>
 	<div id="root">
-		<div id="form" align="center">
+		<div id="form">
 			<form:form action="checkadminlogin" method="post"
 				modelAttribute="adminlogin">
 				<div>
-					<h1 align="center">Admin Login</h1>
+					<h1>Admin Login</h1>
 				</div>
 				<div>
 					<label for="email">Admin Email</label>

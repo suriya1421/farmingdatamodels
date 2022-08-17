@@ -107,6 +107,8 @@ label {
 	<div id="root" class="box">
 		<div id="form">
 			<table>
+			<caption></caption>
+			<tr><th></th></tr>
 				<form:form action="checkuserlogin" method="post"
 					modelAttribute="user">
 					<tr>

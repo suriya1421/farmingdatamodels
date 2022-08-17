@@ -18,30 +18,7 @@ body {
 	font-weight: bold;
 }
 
-.button {
-	background-color: #c2fbd7;
-	border-radius: 100px;
-	box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
-		rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px,
-		rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px,
-		rgba(44, 187, 99, .15) 0 16px 32px;
-	color: green;
-	cursor: pointer;
-	display: inline-block;
-	font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
-		sans-serif;
-	padding: 7px 20px;
-	text-align: center;
-	text-decoration: none;
-	transition: all 250ms;
-	border: 0;
-	font-size: 16px;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-}
-
-.button:hover {
+.cont .button:hover {
 	box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset,
 		rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px,
 		rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px,
@@ -50,7 +27,7 @@ body {
 	color: red;
 }
 
-.button2:hover {
+.con .button2:hover {
 	box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset,
 		rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px,
 		rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px,
@@ -59,44 +36,7 @@ body {
 	color: red;
 }
 
-.button2 {
-	background-color: #c2fbd7;
-	border-radius: 100px;
-	box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
-		rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px,
-		rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px,
-		rgba(44, 187, 99, .15) 0 16px 32px;
-	color: green;
-	cursor: pointer;
-	display: inline-block;
-	font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
-		sans-serif;
-	padding: 7px 20px;
-	text-align: center;
-	text-decoration: none;
-	transition: all 250ms;
-	border: 0;
-	font-size: 16px;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-	margin-left: 250px;
-	/* position: absolute;
-	left: 640px;
-	top: 400px;
-	padding: 12px 28px;
-	background-color: blue;
-	border: none;
-	color: tomato;
-	font-weight: bold;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 40px;
-	margin: 6px 3px;
-	cursor: pointer;
-	width: 25%; */
+
 }
 
 .container {
@@ -114,6 +54,56 @@ body {
 	left: 16px;
 	font-size: 18px;
 }
+
+.cont .button{
+   margin-top: 400px;
+   margin-right: 330px;
+   position:absolute; 
+   top:0; 
+   right:0;
+   background-color: #c2fbd7;
+	border-radius: 100px;
+	box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+		rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px,
+		rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px,
+		rgba(44, 187, 99, .15) 0 16px 32px;
+	color: green;
+	cursor: pointer;
+	display: inline-block;
+	font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
+		sans-serif;
+		text-decoration: none;
+	transition: all 250ms;
+	font-size: 16px;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	padding: 12px 28px;
+}
+
+.con .button2{
+    margin-top: 24px;
+    margin-right: 400px;
+    background-color: #c2fbd7;
+	border-radius: 100px;
+	box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+		rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px,
+		rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px,
+		rgba(44, 187, 99, .15) 0 16px 32px;
+	color: green;
+	cursor: pointer;
+	display: inline-block;
+	font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
+		sans-serif;
+		text-decoration: none;
+	transition: all 250ms;
+	font-size: 16px;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	padding: 12px 28px;
+	
+    }
 </style>
 </head>
 <body>
@@ -122,14 +112,16 @@ body {
 		<p style="font-size: 30px;">Name of the Crop is: ${cropName }</p>
 		<p style="font-size: 30px;">The Growing period of this plant is :
 			${duration } Days
-		<div></div>
-		<p style="font-size: 30px;">Description: ${cropDetailsDiscription}
-		<p>
-			<a href="/cropfertilizer/getCropFertilizer?cropid=${cropId}"><div align = "center">
-				<button class="button">Fertilizer</button></div>
-			</a> <br /> <a href="/cropdisease/getCropDisease?cropid=${cropId}">
-				<div align = "center"><button class="button2">Disease</button></div>
-			</a> <br /> <a href="/home/search">
+		<p style="font-size: 30px;">Description: ${cropDetailsDiscription}   </p>
+       <div class="cont">
+			<a href="/cropfertilizer/getCropFertilizer?cropid=${cropId}">
+				<button class="button">Fertilizer</button>
+			</a> </div>
+			<div class="con">
+			 <br /> <a href="/cropdisease/getCropDisease?cropid=${cropId}">
+				<button class="button2">Disease</button>
+			</a>  </div>
+			 <br /> <a href="/home/search">
 				<button class="button1">Back</button>
 			</a> <br />
 	</div>
