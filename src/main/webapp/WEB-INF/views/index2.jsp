@@ -18,7 +18,7 @@ body {
 
 .button {
 	background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
-    border: 0;
+    border: 6;
     border-radius: 12px;
     color: #FFFFFF;
     cursor: pointer;

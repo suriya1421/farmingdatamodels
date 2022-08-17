@@ -46,5 +46,6 @@ body {
 			</form:form>
 		</div>
 	</div>
+	<div>${result}</div>
 </body>
 </html>

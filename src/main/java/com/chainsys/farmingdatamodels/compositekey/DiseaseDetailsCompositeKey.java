@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 
 public class DiseaseDetailsCompositeKey implements Serializable {
 	@Column(name="crop_id")

@@ -31,14 +31,16 @@ public class HomeController {
 	}                   
 
 	@PostMapping("/checkuserlogin")
-	public String checkingAccess(@ModelAttribute("user") UserDetails user) {
+	public String checkingAccess(@ModelAttribute("user") UserDetails user,Model model) {
 		UserDetails userDetails =userDetailsService.getUserByUserNameAndPassword(user.getUserName(),user.getPassword());
 	    if (userDetails!= null){
 
 	        return "redirect:/home/search";
-	    } else
-	        return "invalid-user-error";
-
+	    } else 
+	    	model.addAttribute("result","password and UserName Mismatch");
+        return "User";
+	    
+	
 	}
 	@GetMapping("/search")
 	public String searchCrop(Model model) {

@@ -66,7 +66,7 @@ public class AdminController {
 	@GetMapping("deleteadminlogin")
 	public String deleteAdminLogin(@RequestParam("adminid") int adminid) {
 		adminService.deleteById(adminid);
-		return "redirect:/admin/adminlist";
+		return LISTADMIN;
 	}
 
 	@GetMapping("/loginform")
@@ -77,13 +77,14 @@ public class AdminController {
 	}
 
 	@PostMapping("/checkadminlogin")
-	public String checkingAccess(@ModelAttribute("adminlogin") Admin aDmin) {
+	public String checkingAccess(@ModelAttribute("adminlogin") Admin aDmin,Model model) {
 		Admin admin = adminService.getEmailAndPassword(aDmin.getEmail(),
 				aDmin.getPassword());
 		if (admin != null) {
 			return "redirect:/home/index";
 		} else {
-			return "redirect-adminloginpage";
+			model.addAttribute("result","password and UserName Mismatch");
+	        return "admin_login_form";
 		}
 
 	}

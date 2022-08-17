@@ -151,5 +151,6 @@ label {
 			</a> <br />
 		</div>
 	</div>
+	<div>${result}</div>
 </body>
 </html>
