@@ -30,6 +30,19 @@ input[type=password] {
 	margin: 8px 0;
 	box-sizing: border-box;
 }
+.button2 {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 18px;
+}
+.sign{
+ font-size:20px;
+ 
+}
+
+
+
 </style>
 </head>
 <body>
@@ -54,12 +67,14 @@ input[type=password] {
 					</div>
 				</div>
 				<div>
-					<a href="/user/alluserlist"> <form:button value="SignIn">SignIn</form:button></a>
-					<form:button type="reset" value="Clear">Reset</form:button>
+				<a href="/user/alluserlist"> 
+				 <form:button class="sign" value="SignIn">SignIn</form:button></a>
+					<form:button class="sign" type="reset" value="Clear">Reset</form:button>
 				</div>
 			</form:form>
 		</div>
 	</div>
 	<div>${result}</div>
+	<button class="button2" onclick="history.back()">Back</button>
 </body>
 </html>
