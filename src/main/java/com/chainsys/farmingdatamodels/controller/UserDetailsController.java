@@ -48,7 +48,7 @@ public class UserDetailsController {
 		}
 
 		userDetailsService.save(userDetails);
-		return LISTOFUSER;
+		return "redirect:/home/search";
 	}
 
 	@GetMapping("/updateuser")

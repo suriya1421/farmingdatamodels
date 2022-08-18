@@ -29,6 +29,12 @@ input[type=text] {
 	margin: 8px 0;
 	box-sizing: border-box;
 }
+.button {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 18px;
+}
 </style>
 </head>
 <body>
@@ -87,5 +93,6 @@ input[type=text] {
 			</form:form>
 		</div>
 	</div>
+	<button class="button" onclick="history.back()">Back</button>
 </body>
 </html>

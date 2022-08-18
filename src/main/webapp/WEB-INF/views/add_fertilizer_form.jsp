@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>add fertilizer</title>
+<style><%@include file="/WEB-INF/views/css/updateform.css"%></style>
 </head>
 <body>
 	<div id="root">
@@ -38,7 +39,7 @@
 					</div>
 					
 					<div>
-						<form:button>Add New</form:button>
+						<form:button>Add New</form:button></div>
 					</div>
 			</form:form>
 		</div>

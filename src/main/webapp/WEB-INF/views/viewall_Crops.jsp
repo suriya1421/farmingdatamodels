@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>view all Crops</title>
+<style><%@include file="/WEB-INF/views/css/table.css"%></style>
 </head>
 <body>
 	<div id="table root">

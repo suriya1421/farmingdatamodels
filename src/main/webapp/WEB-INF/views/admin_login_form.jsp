@@ -10,11 +10,25 @@
 body {
 	text-align: center;
 	background-image:
-		url("https://wallpaper.dog/large/20354828.jpg");
+		url("https://cdn.wallpapersafari.com/70/22/VBrzE9.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
 	font-weight: bold;
+	
+}
+
+input[type=text] {
+	width: 25%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+input[type=password] {
+	width: 25%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
 }
 </style>
 </head>

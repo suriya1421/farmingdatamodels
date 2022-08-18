@@ -7,8 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Crop fertilizer</title>
+<style><%@include file="/WEB-INF/views/css/updateform.css"%></style>
 <style>
-<%@include file="/WEB-INF/views/css/adminadd.css"%>
 </style>
 </head>
 <body>

@@ -37,6 +37,7 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
+    margin-top: 25px;
 }
 </style>
 </head>

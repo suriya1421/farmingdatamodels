@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>view all fertilizer</title>
+<style><%@include file="/WEB-INF/views/css/table.css"%></style>
 </head>
 <body>
 	<div id="table root">
@@ -27,15 +28,15 @@
 						<td>${fertilizer.fertilizerName  }</td>
 						<td>${fertilizer.state}</td>
 						<td>${fertilizer. cost}</td>
-						<td><a href="/fertilizer/updatefertilizer?id=${fertilizer.fertilizerId }">update</a><td>
-						<td><a href="/fertilizer/deletefertilizer?id=${fertilizer.fertilizerId }">delete</a>
+						<td><a href="/fertilizer/updatefertilizer?id=${fertilizer.fertilizerId }">update</a></td>
+						<td><a href="/fertilizer/deletefertilizer?id=${fertilizer.fertilizerId }">delete</a></td>
 						
 					</tr>
 				
 				</c:forEach>
 			</tbody>
 		</table>
-		<a herf=/fertilizer/addfertilizer><button class="button">add</button></a>
+		<a href="/fertilizer/addfertilizer"><button class="button">add</button></a>
 
 	</div>
 </body>

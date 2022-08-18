@@ -124,9 +124,7 @@ body {
 			 <br /> <a href="/cropdisease/getCropDisease?cropid=${cropId}">
 				<button class="button2">Disease</button>
 			</a>  </div>
-			 <br /> <a href="/home/search">
-				<button class="button1">Back</button>
-			</a> <br />
+				<button class="button1" onclick="history.back()">Back</button>
 	</div>
 </body>
 </html>

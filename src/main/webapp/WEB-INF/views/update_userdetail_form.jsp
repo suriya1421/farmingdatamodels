@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update User Details</title>
+<style><%@include file="/WEB-INF/views/css/updateform.css"%></style>
 <style>
 .text-danger {
 	color: #e80c4d;

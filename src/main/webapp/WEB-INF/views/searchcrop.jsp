@@ -74,9 +74,7 @@ label {
 
 		<form:button class="submit">SUBMIT</form:button>
 	</form:form>
-	<a href="/home/userlogin">
-		<button class="button">Back</button>
-	</a>
+		<button class="button" onclick="history.back()">Back</button>
 	<br />
 </body>
 </html>

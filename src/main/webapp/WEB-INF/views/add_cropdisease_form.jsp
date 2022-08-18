@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>add crop disease</title>
+<style><%@include file="/WEB-INF/views/css/updateform.css"%></style>
 </head>
 <body>
 	<div id="root">

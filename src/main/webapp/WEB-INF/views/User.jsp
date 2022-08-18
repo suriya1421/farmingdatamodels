@@ -146,11 +146,12 @@ label {
 					</tr>
 				</form:form>
 			</table>
-			<a href="/home/homepage1">
-				<button class="button">Back</button>
+			
+				<button class="button" onclick="history.back()">Back</button>
 			</a> <br />
 		</div>
+		<div>${result}</div>
 	</div>
-	<div>${result}</div>
+	
 </body>
 </html>

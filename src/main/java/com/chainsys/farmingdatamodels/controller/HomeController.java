@@ -73,6 +73,12 @@ public class HomeController {
 	    
 	    return "index2";
 	}
+
+	@GetMapping("/train")
+	public String train(Model model) {
+	    
+	    return "train";
+	}
 	   
 	@GetMapping("/login")
 	public String userSignupPageToLogin(Model model) {
