@@ -34,8 +34,8 @@ farm data model is a agriculture system when users can get the information about
 
 # Features
 
-1.DB Connectivity
-2.DB Relational data Handling.
+1.DataBase Connectivity
+2.DataBase Relational data Handling.
    Lookup relation.
    One to many relation.
 3.Form validation in frontend level.
