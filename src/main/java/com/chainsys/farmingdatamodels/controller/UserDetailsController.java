@@ -25,7 +25,7 @@ public class UserDetailsController {
 
 	public static final String ADDUSER = "add_userdetail_form";
 	public static final String LISTOFUSER = "redirect:/user/alluserlist";
-	public static final String UPDATEUSER = "update_userdetail_form";
+	public static final String UPDATE = "update_userdetail_form";
 
 	@GetMapping("/alluserlist")
 	public String getFindAll(Model model) {
@@ -55,13 +55,13 @@ public class UserDetailsController {
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
 		UserDetails userDetails = userDetailsService.findById(id);
 		model.addAttribute("updateuser", userDetails);
-		return UPDATEUSER;
+		return UPDATE;
 	}
 
 	@PostMapping("/update")
 	public String updateuser(@Valid @ModelAttribute("updateuser") UserDetails userDetails, Errors errors) {
 		if (errors.hasErrors()) {
-			return UPDATEUSER;
+			return UPDATE;
 		} else {
 			userDetailsService.save(userDetails);
 			return LISTOFUSER;
