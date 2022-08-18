@@ -22,7 +22,7 @@ public class FertilizerController {
 	FertilizerService fertilizerService;
 	public static final String ADDFERTILIZER = "add_fertilizer_form";
 	public static final String LISTOFFERTILIZER= "redirect:/fertilizer/allfertilizerlist";
-	public static final String UPDATEFERTILIZER = "update_fertilizer_form";
+	public static final String UPDATE = "update_fertilizer_form";
 
 	@GetMapping("/allfertilizerlist")
 	public String getFindAll(Model model) {
@@ -49,7 +49,7 @@ public class FertilizerController {
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
 		Fertilizer fertilizer = fertilizerService.findById(id);
 		model.addAttribute("updatefertilizer", fertilizer);
-		return UPDATEFERTILIZER;
+		return UPDATE;
 	}
 
 	@PostMapping("/update")
