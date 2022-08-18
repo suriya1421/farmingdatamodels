@@ -22,70 +22,58 @@ public class HomeController {
 	UserDetailsService userDetailsService;
 	@Autowired
 	private CropDetailsService cropdetailsService;
-	
+
 	@GetMapping("/userlogin")
 	public String adminaccessform(Model model) {
-	    UserDetails  userDetails  = new UserDetails();
-	    model.addAttribute("user", userDetails);
-	    return "User";
-	}                   
+		UserDetails userDetails = new UserDetails();
+		model.addAttribute("user", userDetails);
+		return "User";
+	}
 
 	@PostMapping("/checkuserlogin")
-	public String checkingAccess(@ModelAttribute("user") UserDetails user,Model model) {
-		UserDetails userDetails =userDetailsService.getUserByUserNameAndPassword(user.getUserName(),user.getPassword());
-	    if (userDetails!= null){
+	public String checkingAccess(@ModelAttribute("user") UserDetails user, Model model) {
+		UserDetails userDetails = userDetailsService.getUserByUserNameAndPassword(user.getUserName(),
+				user.getPassword());
+		if (userDetails != null) {
 
-	        return "redirect:/home/search";
-	    } else 
-	    	model.addAttribute("result","password and UserName Mismatch");
-        return "User";
-	    
-	
+			return "redirect:/home/search";
+		} else
+			model.addAttribute("result", "password and UserName Mismatch");
+		return "User";
+
 	}
+
 	@GetMapping("/search")
 	public String searchCrop(Model model) {
-		List<CropDetails>croplist=cropdetailsService.getCropDetailsRepository();
-		CropDetails cropDetails=new CropDetails();
+		List<CropDetails> croplist = cropdetailsService.getCropDetailsRepository();
+		CropDetails cropDetails = new CropDetails();
 		model.addAttribute("croplist", croplist);
 		model.addAttribute("cropDetails", cropDetails);
-	    return "searchcrop";
-	}  
-	@PostMapping("/button")
-	public String button(@ModelAttribute("cropDetails")CropDetails cropDetails,Model model) {
-	    model.addAttribute("cropId", cropDetails.getCropId());
-	    CropDetails cropDetail=cropdetailsService.findById(cropDetails.getCropId());
-	    model.addAttribute("cropDetails", cropDetail);
-	    model.addAttribute("cropDetailsDiscription", cropDetail.getDescription());
-	    model.addAttribute("cropid",cropDetail.getCropId());
-	    model.addAttribute("cropName", cropDetail.getCropName());
-	    model.addAttribute("duration", cropDetail.getDuration());
-	    return "buttons";
-	} 
-	
-	@GetMapping("/homepage1")
-	public String first1(Model model) {
-	    
-	    return "Home";
-	}  
-	
-	@GetMapping("/index")
-	public String index(Model model) {
-	    
-	    return "index2";
+		return "searchcrop";
 	}
 
-	@GetMapping("/train")
-	public String train(Model model) {
-	    
-	    return "train";
+	@PostMapping("/button")
+	public String button(@ModelAttribute("cropDetails") CropDetails cropDetails, Model model) {
+		model.addAttribute("cropId", cropDetails.getCropId());
+		CropDetails cropDetail = cropdetailsService.findById(cropDetails.getCropId());
+		model.addAttribute("cropDetails", cropDetail);
+		model.addAttribute("cropDetailsDiscription", cropDetail.getDescription());
+		model.addAttribute("cropid", cropDetail.getCropId());
+		model.addAttribute("cropName", cropDetail.getCropName());
+		model.addAttribute("duration", cropDetail.getDuration());
+		return "buttons";
 	}
-	   
-	@GetMapping("/login")
-	public String userSignupPageToLogin(Model model) {
-	    
-	    return "redirect_signup_to_signin";
+
+	@GetMapping("/homepage1")
+	public String first1(Model model) {
+
+		return "Home";
 	}
-	   
-	 
-	
+
+	@GetMapping("/index")
+	public String index(Model model) {
+
+		return "index2";
+	}
+
 }
