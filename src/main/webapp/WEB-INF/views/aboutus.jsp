@@ -24,6 +24,12 @@ body {
 	justify-content: center;
 	
 }
+.button {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 18px;
+}
 </style>
 </head>
 <body>
@@ -44,6 +50,6 @@ body {
 		The main aim of our website is to aid the farmers and the people who
 		is unaware of the crops management and their prevention to develop
 		their agriculture to the next level.</div>
-
+<button class="button" onclick="history.back()">Back</button>
 </body>
 </html>
