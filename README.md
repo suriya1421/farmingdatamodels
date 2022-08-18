@@ -34,10 +34,9 @@ farm data model is a agriculture system when users can get the information about
 
 # Features
 
-1.DataBase Connectivity
-2.DataBase Relational data Handling.
-   Lookup relation.
-   One to many relation.
-3.Form validation in frontend level.
-4.Form validation in Javascript level.
-5.Form null validation in Oracle database level.
+1. DataBase Connectivity
+2. DataBase Relational data Handling.
+3. One to many relation.
+4. Form validation in frontend level.
+5. Form validation in Javascript level.
+6. Form null validation in Oracle database level.
