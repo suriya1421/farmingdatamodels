@@ -16,8 +16,7 @@ public class CropFertilizerService {
 	CropFertilizerRepository cropFertilizerRepository;
 
 	public List<CropFertilizerDetails> getCropFertilizer() {
-		List<CropFertilizerDetails> list = cropFertilizerRepository.findAll();
-		return list;
+		return cropFertilizerRepository.findAll();
 	}
 
 	public CropFertilizerDetails save(CropFertilizerDetails cr) {
