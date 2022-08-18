@@ -21,7 +21,7 @@
 			<li><a href="/home/userlogin">User Signin</a></li></a>
 			<li><a href="/user/addnewuser">User Signup</a></li>
 			<li><a href="/admin/loginform">Admin</a></li></a>
-			<li><a href="/admin/loginform">About Us</a></li></a>
+			<li><a href="/home/about">About Us</a></li></a>
 			
 		</ul>
 	</nav>

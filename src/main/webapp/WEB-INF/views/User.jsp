@@ -85,11 +85,19 @@ label {
 #log {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19);
+		
 }
+#log{
+    padding-left: 20px;
+}
+
 
 #cont {
 	position: relative;
 	left: 100px;
+}
+.login{
+    text-align:center;
 }
 
 .button {
@@ -112,43 +120,34 @@ label {
 				<form:form action="checkuserlogin" method="post"
 					modelAttribute="user">
 					<tr>
-						<div>
 							<td><label for="userName">User Name</label></td>
-							<div>
 								<td><form:input path="userName"
 										title="Please Enter Charactor Only" pattern="^[a-z A-Z]+$"
 										class="form-control" required="true" placeholder="Enter Name" /></td>
-							</div>
 							<form:errors path="userName" cssClass="text-danger" />
-						</div>
 					</tr>
 					<tr>
-						<div>
+						<tr>
 							<td><label for="Password">Password</label></td>
-							<div>
 								<td><form:input type="password"
 										title="password is not in correct format"
 										pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" path="password"
 										required="true" placeholder="Enter Password"
 										class="form-control" /></td>
-							</div>
-							<form:errors path="password" cssClass="text-danger" />
-						</div>
+										<form:errors path="password" cssClass="text-danger" />
+							</tr>
+							
 						<br>
-					</tr>
 
 					<tr>
-						<div>
-							<td colspan="5" align="right"><br> <form:button
+							<td><br> <form:button class="login"
 									id="log">Login</form:button></td>
-						</div>
-
 					</tr>
 				</form:form>
 			</table>
 			
 				<button class="button" onclick="history.back()">Back</button>
-			</a> <br />
+		 <br />
 		</div>
 		<div>${result}</div>
 	</div>
