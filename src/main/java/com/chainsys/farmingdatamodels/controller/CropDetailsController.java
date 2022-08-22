@@ -21,67 +21,81 @@ import com.chainsys.farmingdatamodels.services.CropDetailsService;
 public class CropDetailsController {
 	@Autowired
 	CropDetailsService cropDetailsService;
-	private static final String ADDCROPFORM="add_crop_form";
-	private static final String ADDCROPLIST="redirect:/cropdetails/croplist";
-	private static final String UPDATECROP="update_crop_form";
-	
-	
+	private static final String ADDCROPFORM = "add_crop_form";
+	private static final String ADDCROPLIST = "redirect:/cropdetails/croplist";
+	private static final String UPDATECROP = "update_crop_form";
+
 	@GetMapping("/croplist")
 	public String getFindAll(Model model) {
 		List<CropDetails> cropDetails = cropDetailsService.getCropDetailsRepository();
 		model.addAttribute("allcrop", cropDetails);
+		System.out.println("");
 		return "viewall_Crops";
 
-}
+	}
+
 	@GetMapping("/addcrop")
 	public String showAddForm(Model model) {
-		CropDetails  cropDetails = new CropDetails();
-		model.addAttribute("addcropdetails",  cropDetails);
+		CropDetails cropDetails = new CropDetails();
+		model.addAttribute("addcropdetails", cropDetails);
 		return ADDCROPFORM;
 	}
 
 	@PostMapping("/add")
-	public String addNewcrop(@ModelAttribute("addcropdetails") CropDetails  cropDetails) {
-		cropDetailsService.save( cropDetails);
-		return ADDCROPLIST;
+	public String addNewcrop(@ModelAttribute("addcropdetails") CropDetails cropDetails, Model model) {
+		try {
+
+			cropDetailsService.save(cropDetails);
+			model.addAttribute("result", "successfully added");
+			return ADDCROPFORM;
+		} catch (Exception er) {
+			model.addAttribute("result", "failed");
+			return ADDCROPFORM;
+		}
 
 	}
+
 	@GetMapping("/updatecrop")
 	public String showUpdateForm(@RequestParam("id") int id, Model model) {
-		CropDetails  cropDetails = cropDetailsService.findById(id);
-		model.addAttribute("updatecrop",  cropDetails);
+		CropDetails cropDetails = cropDetailsService.findById(id);
+		model.addAttribute("updatecrop", cropDetails);
 		return UPDATECROP;
 	}
 
 	@PostMapping("/update")
-	public String updateCrop(@ModelAttribute("updatecrop") CropDetails  cropDetails) {
-		cropDetailsService.save( cropDetails);
+	public String updateCrop(@ModelAttribute("updatecrop") CropDetails cropDetails) {
+		cropDetailsService.save(cropDetails);
 		return ADDCROPLIST;
 	}
+
 	@GetMapping("/deletecrop")
 	public String deleteCrop(@RequestParam("id") int id) {
 		cropDetailsService.deleteById(id);
 		return ADDCROPLIST;
 
 	}
+
 	@GetMapping("/getcropbyid")
 	public String getCrop(@RequestParam("cropId") int id, Model model) {
-    CropDetails cropDetails= cropDetailsService.findById(id);
-		model.addAttribute("findcropbyid",  cropDetails);
+		CropDetails cropDetails = cropDetailsService.findById(id);
+		model.addAttribute("findcropbyid", cropDetails);
 		return "find_crop_by_id";
 	}
+
 	@GetMapping("/getcropidbyfertilizer")
 	public String getCropIdByFertilizer(@RequestParam("id") int id, Model model) {
-		CropFertilizerDetailsDTO cropFertilizerDetailsDTO=cropDetailsService.getCropAndFertilizerDetails(id);
-		model.addAttribute("getcropid",cropFertilizerDetailsDTO.getCropDetails());
-		model.addAttribute("returnfertilizerdetails",cropFertilizerDetailsDTO.getCropFertilizerDetails());
+		CropFertilizerDetailsDTO cropFertilizerDetailsDTO = cropDetailsService.getCropAndFertilizerDetails(id);
+		model.addAttribute("getcropid", cropFertilizerDetailsDTO.getCropDetails());
+		model.addAttribute("returnfertilizerdetails", cropFertilizerDetailsDTO.getCropFertilizerDetails());
 		return "list_crop_fertilizer_details";
 	}
+
 	@GetMapping("/getcropidbydisease")
 	public String getCropIdByDisease(@RequestParam("id") int id, Model model) {
-		CropDetailsAndCropDiseaseDetailsDTO cropDetailsAndCropDiseaseDetailsDTO=cropDetailsService.getCropAndDiseaseDetails(id);
-		model.addAttribute("getcropid",cropDetailsAndCropDiseaseDetailsDTO.getCropDetails());
-		model.addAttribute("returndiseasedetails",cropDetailsAndCropDiseaseDetailsDTO.getCropDiseaseDetails());
+		CropDetailsAndCropDiseaseDetailsDTO cropDetailsAndCropDiseaseDetailsDTO = cropDetailsService
+				.getCropAndDiseaseDetails(id);
+		model.addAttribute("getcropid", cropDetailsAndCropDiseaseDetailsDTO.getCropDetails());
+		model.addAttribute("returndiseasedetails", cropDetailsAndCropDiseaseDetailsDTO.getCropDiseaseDetails());
 		return "list_crop_disease_details";
 	}
 }

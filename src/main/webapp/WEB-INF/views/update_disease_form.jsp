@@ -16,31 +16,31 @@
 				<div>
 					<label for="diseaseId">disease id</label>
 					<div>
-						<form:input path="diseaseId" />
+						<form:input path="diseaseId" pattern="^[0-9]+$" placeholder="disease id" required="true" title="please enter number only" />
 					</div>
 				</div>
 				<div>
 					<label for="diseaseName">disease Name</label>
 					<div>
-						<form:input path="diseaseName" />
+						<form:input path="diseaseName" pattern="^[a-z A-Z]+$" placeholder="crop name " required="true"/>
 					</div>
 					<div>
 						<label for="reason">reason</label>
 						<div>
-							<form:input path="reason" />
+							<form:input path="reason" required="true"  />
 						</div>
 					</div>
 
 				</div>
-				<div>
+				
 					<label for="medicine">medicine</label>
 					<div>
-						<form:input path="medicine" />
+						<form:input path="medicine" required="true" />
 					</div>
 					<div>
 						<label for="prevention">prevention</label>
 						<div>
-							<form:input path="prevention" />
+							<form:input path="prevention" required="true" />
 						</div>
 					</div>
 					<div>
@@ -48,6 +48,6 @@
 					</div>
 			</form:form>
 		</div>
-	</div>
+		</div>
 </body>
 </html>

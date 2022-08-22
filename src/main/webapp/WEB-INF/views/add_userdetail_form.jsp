@@ -16,7 +16,7 @@
 body {
 	text-align: center;
 	background-image:
-		url("https://media.istockphoto.com/photos/forest-wooden-table-background-summer-sunny-meadow-with-green-grass-picture-id1353553203?b=1&k=20&m=1353553203&s=170667a&w=0&h=QTyTGI9tWQluIlkmwW0s7Q4z7R_IT8egpzzHjW3cSas=");
+		url("https://media.istockphoto.com/vectors/monstera-cheese-plant-frame-with-natural-leaf-holes-background-vector-id1301675960?k=20&m=1301675960&s=170667a&w=0&h=hgU4rHnTgX0n-3hEZlt5OlhuwRWfyS1EoW0xrfyrj7w=");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;

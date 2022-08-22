@@ -21,15 +21,16 @@ public class DiseaseController {
 	@Autowired
 	DiseaseService diseaseService;
 	public static final String ADDDISEASE = "add_disease_form";
-	public static final String LISTOFDISEASE= "redirect:/disease/alldiseaselist";
+	public static final String LISTOFDISEASE = "redirect:/disease/alldiseaselist";
 	public static final String UPDATEDISEASE = "update_disease_form";
-	
+
 	@GetMapping("/alldiseaselist")
 	public String getFindAll(Model model) {
 		List<Disease> disease = diseaseService.getDisease();
 		model.addAttribute("allDisease", disease);
 		return "viewall_Disease";
 	}
+
 	@GetMapping("/addnewdisease")
 	public String showAddForm(Model model) {
 		Disease disease = new Disease();
@@ -43,6 +44,7 @@ public class DiseaseController {
 		return LISTOFDISEASE;
 
 	}
+
 	@GetMapping("/updatedisease")
 	public String showUpdateForm(@RequestParam("update") int id, Model model) {
 		Disease disease = diseaseService.findById(id);
@@ -52,9 +54,11 @@ public class DiseaseController {
 
 	@PostMapping("/update")
 	public String updateFertilizer(@ModelAttribute("updatedisease") Disease disease) {
-		diseaseService.save(disease);
+			System.out.println("somthing");
+			diseaseService.save(disease);
 		return LISTOFDISEASE;
 	}
+
 	@GetMapping("/deletedisease")
 	public String deleteDisease(@RequestParam("id") int id) {
 		diseaseService.deleteById(id);
@@ -67,16 +71,13 @@ public class DiseaseController {
 		model.addAttribute("finddiseasebyid", disease);
 		return "find_disease_by_id";
 	}
+
 	@GetMapping("/getcropdiseasebydiseaseid")
 	public String getCropDiseaseByDiseaseId(@RequestParam("id") int id, Model model) {
-		DiseaseAndDiseaseDetailsDTO diseaseAndDiseaseDetailsDTO=diseaseService.getCropDiseaseDetails(id);
+		DiseaseAndDiseaseDetailsDTO diseaseAndDiseaseDetailsDTO = diseaseService.getCropDiseaseDetails(id);
 		model.addAttribute("getdiseasebyid", diseaseAndDiseaseDetailsDTO.getDisease());
 		model.addAttribute("returndiseasedetails", diseaseAndDiseaseDetailsDTO.getCropDiseaseDetails());
 		return "list_disease_by_disease_id";
 	}
-	
-
-
-	
 
 }

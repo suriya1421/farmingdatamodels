@@ -16,18 +16,18 @@
 				<div>
 					<label for="cropId">Crop id</label>
 					<div>
-						<form:input path="cropId" />
+						<form:input path="cropId"  pattern="^[0-9]+$" placeholder="crop id" required="true" title="please enter number only" />
 					</div>
 				</div>
 				<div>
 					<label for="diseaseId">disease id</label>
 					<div>
-						<form:input path="diseaseId" />
+						<form:input path="diseaseId"  pattern="^[0-9]+$" placeholder="disease id" required="true" title="please enter number only"/>
 					</div>
 					<div>
 						<label for="affectingStages">Affecting Stages</label>
 						<div>
-							<form:input path="affectingStages" />
+							<form:input path="affectingStages" required="true" />
 						</div>
 					</div>
 
